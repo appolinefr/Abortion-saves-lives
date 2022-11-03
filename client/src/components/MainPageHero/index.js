@@ -6,6 +6,7 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import SignupModal from "../Signup";
 
 const styles = {
   color: "#FF5677",
@@ -39,19 +40,7 @@ export default function MainPageHero() {
             alignSelf={"center"}
             position={"relative"}
           >
-            <Button
-              width={160}
-              fontSize={"md"}
-              fontWeight={600}
-              color={"white"}
-              bg={styles.color}
-              href={"#"}
-              _hover={{
-                bg: "pink.700",
-              }}
-            >
-              Sign up
-            </Button>
+            <SignupModal />
             <Button
               width={160}
               fontSize={"md"}
