@@ -25,7 +25,7 @@ import {
 const styles = {
   color: "#FF5677",
 };
-export default function WithSubnavigation() {
+export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -101,13 +101,13 @@ export default function WithSubnavigation() {
         >
           <Button
             as={"a"}
-            fontSize={"sm"}
+            fontSize={"md"}
             fontWeight={600}
             color={"white"}
             bg={styles.color}
             href={"#"}
             _hover={{
-              bg: "pink.300",
+              bg: "pink.700",
             }}
           >
             login
@@ -135,6 +135,10 @@ const NAV_ITEMS = [
   },
   {
     label: "Support us",
+    href: "#",
+  },
+  {
+    label: "Contact",
     href: "#",
   },
 ];
