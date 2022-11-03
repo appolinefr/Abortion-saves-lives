@@ -18,14 +18,14 @@ const styles = {
   color: "#FF5677",
 };
 
-export default function SignupModal() {
+export default function LoginModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
       <Button
         onClick={onOpen}
-        width={160}
+        as={"a"}
         fontSize={"md"}
         fontWeight={600}
         color={"white"}
@@ -35,22 +35,14 @@ export default function SignupModal() {
           bg: "pink.700",
         }}
       >
-        Sign up
+        Login
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader mb={4}>Create your account</ModalHeader>
+          <ModalHeader mb={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl>
-              <FormLabel>Username</FormLabel>
-              <Input
-                type="text"
-                placeholder="
-              Username"
-              />
-            </FormControl>
             <FormControl mt={4}>
               <FormLabel>Email</FormLabel>
               <Input type="email" placeholder="Email" />
@@ -72,21 +64,7 @@ export default function SignupModal() {
                 bg: "pink.700",
               }}
             >
-              {" "}
-              Sign up
-            </Button>
-            <Button
-              fontSize={"md"}
-              fontWeight={600}
-              color={"white"}
-              bg={styles.color}
-              href={"#"}
-              _hover={{
-                bg: "pink.700",
-              }}
-              onClick={onClose}
-            >
-              Cancel
+              Login
             </Button>
           </ModalFooter>
         </ModalContent>
