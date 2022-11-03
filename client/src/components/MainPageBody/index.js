@@ -20,7 +20,7 @@ const Feature = ({ heading, text, icon, button }) => {
   return (
     <GridItem>
       {icon}
-      <chakra.h3 fontSize="xl" fontWeight="600">
+      <chakra.h3 fontSize="xl" fontWeight="600" mb={3}>
         {heading}
       </chakra.h3>
       <chakra.p>{text}</chakra.p>
@@ -65,7 +65,7 @@ export default function MainPageBody() {
           icon={<Icon as={FiInfo} w={10} h={10} color={styles.color} mb={4} />}
           heading={"Get information about abortion"}
           text={
-            "Abortion is a safe and legal way to end a pregnancy. This information can help you understand your abortion options, get cost estimates, and will help you navigate the best care pathway."
+            "Abortion is a safe and legal way to end a pregnancy. This will help you understand your abortion optionsand navigate the best care pathway."
           }
           button={
             <Button
@@ -88,7 +88,7 @@ export default function MainPageBody() {
           icon={<Icon as={FiMap} w={10} h={10} color={styles.color} mb={4} />}
           heading={"Where can I get an abortion"}
           text={
-            "How do I find an abortion clinic or hospital? This tool will help you find the relevant health service in South Australia."
+            "How do I find an abortion clinic or hospital? This tool will help you find the relevant and nearest health service in South Australia."
           }
           button={
             <Button

@@ -40,7 +40,7 @@ export default function SignupModal() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader mb={4}>Create your account</ModalHeader>
+          <ModalHeader my={4}>Create your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>

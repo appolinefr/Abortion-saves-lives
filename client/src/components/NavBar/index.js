@@ -3,7 +3,6 @@ import {
   Flex,
   Text,
   IconButton,
-  Button,
   Stack,
   Collapse,
   Icon,
@@ -21,7 +20,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-
+import LoginModal from "../Login";
 const styles = {
   color: "#FF5677",
 };
@@ -36,7 +35,7 @@ export default function NavBar() {
         minH={"60px"}
         py={{ base: 4 }}
         px={{ base: 6 }}
-        borderBottom={2}
+        borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
@@ -99,19 +98,7 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"md"}
-            fontWeight={600}
-            color={"white"}
-            bg={styles.color}
-            href={"#"}
-            _hover={{
-              bg: "pink.700",
-            }}
-          >
-            login
-          </Button>
+          <LoginModal />
         </Stack>
       </Flex>
 

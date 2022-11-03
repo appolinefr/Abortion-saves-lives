@@ -24,7 +24,7 @@ export default function MainPageHero() {
           as={Box}
           textAlign={"center"}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 16, md: 28 }}
+          py={{ base: 14, md: 20 }}
         >
           <Heading
             fontWeight={300}

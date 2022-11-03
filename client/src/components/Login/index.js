@@ -40,7 +40,7 @@ export default function LoginModal() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader mb={4}>Log into your account</ModalHeader>
+          <ModalHeader my={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl mt={4}>
