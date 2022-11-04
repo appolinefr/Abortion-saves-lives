@@ -1,17 +1,22 @@
 import React from "react";
 import NavBar from "./components/NavBar";
-import MainPageHero from "./components/MainPageHero";
 import Footer from "./components/Footer";
-import MainBodyPage from "./components/MainPageBody";
 import { ChakraProvider } from "@chakra-ui/react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
 
 function App() {
   return (
     <ChakraProvider>
-      <NavBar />
-      <MainPageHero />
-      <MainBodyPage />
-      <Footer />
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+      </Router>
     </ChakraProvider>
   );
 }
