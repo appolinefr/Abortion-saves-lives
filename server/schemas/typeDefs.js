@@ -37,3 +37,5 @@ const typeDefs = gql`
     removeComment(commentId: ID!): Comment
   }
 `;
+
+module.exports = typeDefs;
