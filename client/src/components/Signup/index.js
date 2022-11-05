@@ -32,7 +32,7 @@ export default function SignupModal() {
         bg={styles.color}
         href={"#"}
         _hover={{
-          bg: "pink.700",
+          bg: "#A7D2CB",
         }}
       >
         Sign up
@@ -69,7 +69,7 @@ export default function SignupModal() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               {" "}
@@ -82,7 +82,7 @@ export default function SignupModal() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
               onClick={onClose}
             >

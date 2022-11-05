@@ -14,8 +14,9 @@ const SocialButton = ({ children, label, href }) => {
     <chakra.button
       bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
       rounded={"full"}
-      w={8}
-      h={8}
+      w={10}
+      h={10}
+      variant="ghost"
       cursor={"pointer"}
       as={"a"}
       href={href}
@@ -24,7 +25,8 @@ const SocialButton = ({ children, label, href }) => {
       justifyContent={"center"}
       transition={"background 0.3s ease"}
       _hover={{
-        bg: useColorModeValue("blackAlpha.200", "whiteAlpha.200"),
+        bg: "#FF5677",
+        color: useColorModeValue("white", "gray.700"),
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -49,7 +51,6 @@ export default function Footer() {
         align={{ base: "center", md: "center" }}
       >
         <Text>© 2022 Abortion Saves Lives. All rights reserved</Text>
-        <Text>Made with 💜 by Appoline </Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton label={"Twitter"} href={"#"}>
             <FaLinkedin />

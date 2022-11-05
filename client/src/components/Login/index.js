@@ -32,7 +32,7 @@ export default function LoginModal() {
         bg={styles.color}
         href={"#"}
         _hover={{
-          bg: "pink.700",
+          bg: "#A7D2CB",
         }}
       >
         Login
@@ -61,7 +61,7 @@ export default function LoginModal() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               Login

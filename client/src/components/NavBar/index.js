@@ -60,7 +60,7 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            fontSize={"lg"}
+            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
             fontWeight={300}
             mr={1}
           >
@@ -70,7 +70,7 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={styles.color}
-            fontSize={"lg"}
+            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
             fontWeight={500}
             mr={1}
           >
@@ -80,14 +80,14 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            fontSize={"lg"}
+            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
             fontWeight={300}
           >
             Lives
           </Text>
         </Flex>
         <Flex>
-          <Flex display={{ base: "none", md: "flex" }} mr={10}>
+          <Flex display={{ base: "none", md: "flex" }} mr={6}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -112,9 +112,11 @@ export default function NavBar() {
 const NAV_ITEMS = [
   {
     label: "Home",
+    href: "/",
   },
   {
     label: "About",
+    href: "about",
   },
   {
     label: "Where",
@@ -126,7 +128,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Contact",
-    href: "#",
+    href: "contact",
   },
 ];
 
@@ -135,7 +137,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} spacing={2}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>

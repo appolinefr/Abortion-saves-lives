@@ -49,7 +49,7 @@ export default function MainPageHero() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               Support us

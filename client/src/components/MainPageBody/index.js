@@ -12,6 +12,7 @@ import {
 } from "@chakra-ui/react";
 
 import { FiInfo, FiMap, FiShare2 } from "react-icons/fi";
+
 const styles = {
   color: "#FF5677",
 };
@@ -23,13 +24,13 @@ const Feature = ({ heading, text, icon, button }) => {
       <chakra.h3 fontSize="xl" fontWeight="600" mb={3}>
         {heading}
       </chakra.h3>
-      <chakra.p>{text}</chakra.p>
+      <chakra.p color={"gray.500"}>{text}</chakra.p>
       {button}
     </GridItem>
   );
 };
 
-export default function MainPageBody() {
+export default function gridListWithCTA() {
   return (
     <Box as={Container} maxW="7xl" mt={14} p={4}>
       <Grid
@@ -77,7 +78,7 @@ export default function MainPageBody() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               Learn more
@@ -100,7 +101,7 @@ export default function MainPageBody() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               Learn more
@@ -123,7 +124,7 @@ export default function MainPageBody() {
               bg={styles.color}
               href={"#"}
               _hover={{
-                bg: "pink.700",
+                bg: "#A7D2CB",
               }}
             >
               Learn more
