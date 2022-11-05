@@ -12,7 +12,11 @@ import {
   FormControl,
   FormLabel,
   Input,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react";
+
+import { MdOutlineEmail } from "react-icons/md";
 
 const styles = {
   color: "#FF5677",
@@ -43,13 +47,26 @@ export default function LoginModal() {
           <ModalHeader my={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Email</FormLabel>
-              <Input type="email" placeholder="Email" />
+              <InputGroup>
+                <InputLeftElement children={<MdOutlineEmail />} />
+                <Input
+                  type="email"
+                  placeholder="Email"
+                  size="md"
+                  focusBorderColor="#FF5677"
+                />
+              </InputGroup>
             </FormControl>
-            <FormControl mt={4}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Password</FormLabel>
-              <Input type="password" placeholder="Password" />
+              <Input
+                type="password"
+                placeholder="Password"
+                size="md"
+                focusBorderColor="#FF5677"
+              />
             </FormControl>
           </ModalBody>
           <ModalFooter>

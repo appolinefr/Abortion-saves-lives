@@ -30,15 +30,21 @@ export default function ContactFormWithSocialButtons() {
         borderRadius="lg"
         m={{ base: 5, md: 16, lg: 10 }}
         p={{ sm: 5, md: 10, lg: 16 }}
-        // bg={"#A7D2CB"}
+        bg={useColorModeValue("gray.50", "gray.900")}
       >
         <Box w={{ base: "md", md: "xl", lg: "3xl" }}>
           <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
             <Heading
               fontSize={{
-                base: "4xl",
-                md: "5xl",
+                base: "2xl",
+                md: "3xl",
               }}
+              textTransform={"uppercase"}
+              color={"white"}
+              fontWeight={600}
+              bg={"#A7D2CB"}
+              p={6}
+              rounded={"md"}
             >
               Get in Touch
             </Heading>
