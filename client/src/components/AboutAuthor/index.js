@@ -43,8 +43,8 @@ export default function AboutAuthor() {
             I was very lucky. Not all woman are. There is still a lot of stigma
             and shame around abortion even in countries where they are legal. I
             wanted to create a safe space where people can discuss abortions and
-            share their experience to help others decide where they can get the
-            best abortion for them.
+            share their experience to help others decide where they can get an
+            abortion.
           </Text>
         </Stack>
       </SimpleGrid>
