@@ -25,10 +25,9 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($commentId: ID!, $commentText: String!) {
-    addComment(commentId: $commentId, commentText: $commentText) {
+  mutation addComment($commentId: ID!, $commentBody: String!) {
+    addComment(commentId: $commentId, commentBody: $commentBody) {
       _id
-      commentTitle
       commentBody
       createAt
     }
@@ -50,6 +49,7 @@ export const ADD_FACILITY = gql`
       surgicalAbortion
       medicalAbortion
       cost
+      comments
     }
   }
 `;
