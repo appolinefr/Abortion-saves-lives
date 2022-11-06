@@ -18,10 +18,10 @@ const facilitySchema = new Schema({
     trim: true,
   },
   surgicalAbortion: {
-    type: Boolean,
+    type: String,
   },
   medicalAbortion: {
-    type: Boolean,
+    type: String,
   },
   cost: {
     type: String,

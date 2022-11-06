@@ -10,81 +10,104 @@ import {
   ListItem,
   ListIcon,
   Button,
+  SimpleGrid,
+  Container,
 } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
+import { CheckIcon, SmallCloseIcon } from "@chakra-ui/icons";
+import { HiCurrencyDollar } from "react-icons/hi";
 
 const FacilitiesList = ({ facilities = [] }) => {
   if (!facilities.length) {
     return <h3>No facilities Yet</h3>;
   }
 
-  return facilities.map((facility) => (
-    <Center key={facility._id} py={6} mb={6}>
-      <Box
-        maxW={"330px"}
-        w={"full"}
-        bg={("gray.800", "white")}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        overflow={"hidden"}
-      >
-        <Stack
-          textAlign={"center"}
-          p={6}
-          color={("gray.800", "white")}
-          align={"center"}
-        >
-          <Text
-            fontSize={"sm"}
-            fontWeight={500}
-            bg={"#A7D2CB"}
-            p={2}
-            px={3}
-            color={"white"}
-            rounded={"full"}
-          >
-            {facility.name}
-          </Text>
-          <Stack direction={"column"} align={"center"} justify={"center"}>
-            <Text fontSize={"3xl"}>{facility.address}</Text>
-            <Text fontSize={"6xl"} fontWeight={800}>
-              {facility.phone}
-            </Text>
-          </Stack>
-        </Stack>
-        <Box bg={("gray.50", "gray.900")} px={6} py={10}>
-          <List spacing={3}>
-            <ListItem>
-              <ListIcon as={CheckIcon} color="#A7D2CB" />
-              {facility.medicalAbortion}
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckIcon} color="#A7D2CB" />
-              {facility.surgicalAbortion}
-            </ListItem>
-            <ListItem>
-              <ListIcon as={CheckIcon} color="#A7D2CB" />
-              {facility.cost}
-            </ListItem>
-          </List>
-          <Link to={`/where/${facility._id}`}>
-            <Button
-              mt={10}
+  return (
+    <Container maxW={"6xl"}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} maxW={"6xl"}>
+        {facilities.map((facility) => (
+          <Center key={facility._id} py={2}>
+            <Box
+              maxW={"350px"}
               w={"full"}
-              bg={"#FF5677"}
-              color={"white"}
-              rounded={"xl"}
-              _hover={{
-                bg: "#A7D2CB",
-              }}
+              boxShadow={"xl"}
+              rounded={"md"}
+              overflow={"hidden"}
             >
-              View comments
-            </Button>
-          </Link>
-        </Box>
-      </Box>
-    </Center>
-  ));
+              <Stack
+                textAlign={"center"}
+                p={6}
+                align={"center"}
+                bg={"gray.100"}
+              >
+                <Text
+                  fontSize={"lg"}
+                  fontWeight={500}
+                  bg={"#A7D2CB"}
+                  p={2}
+                  px={3}
+                  mb={4}
+                  color={"white"}
+                  rounded={"full"}
+                >
+                  {facility.name}
+                </Text>
+                <Stack direction={"column"} align={"center"} justify={"center"}>
+                  <Text mb={2}>{facility.address}</Text>
+                  <Text fontWeight={800}>{facility.phone}</Text>
+                </Stack>
+              </Stack>
+              <Box px={6} pb={10} pt={2}>
+                <List spacing={3}>
+                  <ListItem>
+                    {facility.medicalAbortion === "Yes" ? (
+                      <>
+                        <ListIcon as={CheckIcon} color="#A7D2CB" />
+                      </>
+                    ) : (
+                      <>
+                        <ListIcon as={SmallCloseIcon} color="red" />
+                      </>
+                    )}
+                    Medical abortion: {facility.medicalAbortion}
+                  </ListItem>
+                  <ListItem>
+                    {facility.surgicalAbortion === "Yes" ? (
+                      <>
+                        <ListIcon as={CheckIcon} color="#A7D2CB" />
+                      </>
+                    ) : (
+                      <>
+                        <ListIcon as={SmallCloseIcon} color="red" />
+                      </>
+                    )}
+                    Surgical abortion: {facility.surgicalAbortion}
+                  </ListItem>
+                  <ListItem>
+                    <ListIcon as={HiCurrencyDollar} />
+                    Cost of procedure: {facility.cost}
+                  </ListItem>
+                </List>
+                <Link to={`/where/${facility._id}`}>
+                  <Button
+                    mt={10}
+                    w={"full"}
+                    bg={"#FF5677"}
+                    color={"white"}
+                    rounded={"xl"}
+                    _hover={{
+                      bg: "#A7D2CB",
+                    }}
+                  >
+                    View comments
+                  </Button>
+                </Link>
+              </Box>
+            </Box>
+          </Center>
+        ))}
+      </SimpleGrid>
+    </Container>
+  );
 };
 
 export default FacilitiesList;

@@ -84,7 +84,7 @@ const surgicalFeatures = [
   },
 ];
 
-export default function GridListWithHeading() {
+export default function infoPageBody() {
   return (
     <Box p={4} mt={{ sm: 6, md: 8, lg: 10 }}>
       <Stack

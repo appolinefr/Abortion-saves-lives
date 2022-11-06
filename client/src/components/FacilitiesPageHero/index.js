@@ -18,6 +18,7 @@ export default function FacilityPageHero() {
         maxW={"10xl"}
         bg={useColorModeValue("gray.50", "gray.900")}
         color={useColorModeValue("gray.700", "gray.200")}
+        mb={"6"}
       >
         <Stack
           as={Box}
@@ -32,8 +33,9 @@ export default function FacilityPageHero() {
           >
             Where to get an&nbsp;
             <Text as={"span"} color={styles.color}>
-              abortion
+              abortion&nbsp;
             </Text>
+            in SA
           </Heading>
         </Stack>
       </Container>

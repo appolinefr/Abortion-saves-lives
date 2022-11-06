@@ -26,8 +26,8 @@ const typeDefs = gql`
     name: String
     address: String
     phone: String
-    surgicalAbortion: Boolean
-    medicalAbortion: Boolean
+    surgicalAbortion: String
+    medicalAbortion: String
     cost: String
     comments: [Comment]
   }
