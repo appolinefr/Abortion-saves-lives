@@ -15,7 +15,9 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import LoginModal from "../Login";
+
 import Auth from "../../utils/auth";
+
 const styles = {
   color: "#FF5677",
 };

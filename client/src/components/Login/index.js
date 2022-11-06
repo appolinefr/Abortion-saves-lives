@@ -1,4 +1,10 @@
 import React from "react";
+import { useState } from "react";
+
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
+
 import { useDisclosure } from "@chakra-ui/react";
 import {
   Modal,
@@ -23,8 +29,39 @@ const styles = {
   color: "#FF5677",
 };
 
-export default function LoginModal() {
+export default function LoginModal(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [formState, setFormState] = useState({ email: "", password: "" });
+  const [login, { error }] = useMutation(LOGIN_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+    try {
+      const { data } = await login({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.login.token);
+    } catch (e) {
+      console.error(e);
+    }
+
+    setFormState({
+      email: "",
+      password: "",
+    });
+  };
 
   return (
     <>
@@ -48,27 +85,46 @@ export default function LoginModal() {
           <ModalHeader my={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl isRequired mt={4}>
+            <FormControl isRequired mt={4} onSubmit={handleFormSubmit}>
               <FormLabel>Email</FormLabel>
-              <InputGroup>
+              <InputGroup mt={4}>
                 <InputLeftElement children={<MdOutlineEmail />} />
                 <Input
                   type="email"
                   placeholder="Email"
                   size="md"
                   focusBorderColor="#FF5677"
+                  value={formState.email}
+                  onChange={handleChange}
                 />
               </InputGroup>
-            </FormControl>
-            <FormControl isRequired mt={4} mb={4}>
-              <FormLabel>Password</FormLabel>
+              <FormLabel mt={4}>Password</FormLabel>
               <Input
+                mt={4}
                 type="password"
                 placeholder="Password"
                 size="md"
                 focusBorderColor="#FF5677"
+                value={formState.password}
+                onChange={handleChange}
               />
+              <Button
+                type={"submit"}
+                mb={4}
+                mt={4}
+                fontSize={"md"}
+                fontWeight={600}
+                color={"white"}
+                bg={styles.color}
+                href={"#"}
+                _hover={{
+                  bg: "#A7D2CB",
+                }}
+              >
+                Login
+              </Button>
             </FormControl>
+            {error && <Text>{error.message}</Text>}
             <Text
               color={"gray.600"}
               as={"a"}
@@ -81,21 +137,7 @@ export default function LoginModal() {
               No account? Back to main page to sign up
             </Text>
           </ModalBody>
-          <ModalFooter>
-            <Button
-              mr={4}
-              fontSize={"md"}
-              fontWeight={600}
-              color={"white"}
-              bg={styles.color}
-              href={"#"}
-              _hover={{
-                bg: "#A7D2CB",
-              }}
-            >
-              Login
-            </Button>
-          </ModalFooter>
+          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>
