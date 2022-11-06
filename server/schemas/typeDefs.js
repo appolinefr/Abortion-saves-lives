@@ -13,7 +13,7 @@ const typeDefs = gql`
     _id: ID
     commentBody: String
     commentAuthor: String
-    createAt: String
+    createdAt: String
   }
 
   type Auth {
@@ -35,10 +35,10 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(username: String!): User
-    comments(username: String!): [Comment]
+    comments: [Comment]
     comment(commentId: ID!): Comment
     facilities: [Facility]
-    facility(facilityId: ID!): Facility
+    facility(facilityID: ID!): Facility
     me: User
   }
 
@@ -46,8 +46,9 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!, commentAuthor: String!): Comment
-    addFacility(name: String!, address: String!, phone: String!): Facility
   }
 `;
+
+    // addFacility(name: String!, address: String!, phone: String!): Facility
 
 module.exports = typeDefs;

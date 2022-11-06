@@ -1,0 +1,66 @@
+[
+  {
+    "name": "Flinders Medical Centre",
+    "address": "Flinders Drive, Bedford Park SA 5042",
+    "phone": "(08) 8204 5197",
+    "medicalAbortion": true,
+    "surgicalAbortion": true,
+    "cost": "free with Medicare card"
+  },
+  {
+    "name": "Noarlunga Hospital",
+    "address": "Alexander Kelly Drive, Noarlunga Centre SA 5168",
+    "phone": "(08) 8384 9233",
+    "medicalAbortion": true,
+    "surgicalAbortion": true,
+    "cost": "free with Medicare card"
+  },
+  {
+    "name": "Lyell McEwin Hospital",
+    "address": "Family Clinic Women’s Health Entrance, Trembath Road Elizabeth Vale SA 5112",
+    "phone": "(08) 8282 0255",
+    "medicalAbortion": false,
+    "surgicalAbortion": true,
+    "cost": "free with Medicare card"
+  },
+  {
+    "name": "Clare and Burra Hospital",
+    "address": "Commercial St, Burra SA 5417",
+    "phone": "(08) 8841 3777",
+    "medicalAbortion": true,
+    "surgicalAbortion": true,
+    "cost": "may be additional costs associated with some services such as ultrasound and pathology screening"
+  },
+  {
+    "name": "Gawler Health Service",
+    "address": "21 Hutchinson Rd, Gawler East SA 5118",
+    "phone": "(08) 8521 2369",
+    "medicalAbortion": true,
+    "surgicalAbortion": false,
+    "cost": "free with Medicare card"
+  },
+  {
+    "name": "Murray Bridge Clinic",
+    "address": "8 Standen St, Murray Bridge SA 5253",
+    "phone": "(08) 8539 3232",
+    "medicalAbortion": true,
+    "surgicalAbortion": false,
+    "cost": "Unknown"
+  },
+  {
+    "name": "Tanunda Hospital",
+    "address": "15 Mill Street Tanunda SA 5352",
+    "phone": "(08) 8563 2398",
+    "medicalAbortion": true,
+    "surgicalAbortion": true,
+    "cost": "Unknown"
+  },
+  {
+    "name": "Wallaroo Community Hospital",
+    "address": "1 Ernest Terrace, Wallaroo SA 5556",
+    "phone": "(08) 8821 3133",
+    "medicalAbortion": true,
+    "surgicalAbortion": true,
+    "cost": "private fees apply"
+  }
+]

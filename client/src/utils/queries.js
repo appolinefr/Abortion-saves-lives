@@ -8,9 +8,49 @@ export const QUERY_USER = gql`
       email
       comments {
         _id
-        commentTitle
+        commentAuthor
         commentBody
-        createAt
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_FACILITIES = gql`
+  query getFacilities {
+    facilities {
+      _id
+      name
+      address
+      phone
+      medicalAbortion
+      surgicalAbortion
+      cost
+      comments {
+        _id
+        commentAuthor
+        commentBody
+        createdAt
+      }
+    }
+  }
+`;
+
+export const QUERY_SINGLE_FACILITy = gql`
+  query getFacility($facilityId: ID!) {
+    facility(facilityId: $facilityId) {
+      _id
+      name
+      address
+      phone
+      medicalAbortion
+      surgicalAbortion
+      cost
+      comments {
+        _id
+        commentAuthor
+        commentBody
+        createdAt
       }
     }
   }
@@ -20,9 +60,9 @@ export const QUERY_COMMENTS = gql`
   query getComments {
     comment {
       _id
-      commentTitle
+      commentAuthor
       commentBody
-      createAt
+      createdAt
     }
   }
 `;
@@ -31,9 +71,9 @@ export const QUERY_SINGLE_COMMENT = gql`
   query getSingleComment($commentId: ID!) {
     comment(commentId: $commentId) {
       _id
-      commentTitle
+      commentAuthor
       commentBody
-      createAt
+      createdAt
     }
   }
 `;
@@ -46,10 +86,11 @@ export const QUERY_ME = gql`
       email
       comments {
         _id
-        commentTitle
+        commentAuthor
         commentBody
-        createAt
+        createdAt
       }
     }
   }
 `;
+

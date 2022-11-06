@@ -141,7 +141,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Where",
-    href: "#",
+    href: "where",
   },
   {
     label: "Info",
