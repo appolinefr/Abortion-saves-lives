@@ -3,6 +3,7 @@ import {
   Flex,
   Text,
   IconButton,
+  Button,
   Stack,
   Collapse,
   Link,
@@ -14,12 +15,16 @@ import {
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import LoginModal from "../Login";
+import Auth from "../../utils/auth";
 const styles = {
   color: "#FF5677",
 };
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
-
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
     <Box>
       <Flex
@@ -91,7 +96,28 @@ export default function NavBar() {
           direction={"row"}
           spacing={6}
         >
-          <LoginModal />
+          {Auth.loggedIn() ? (
+            <>
+              <Button
+                onClick={logout}
+                as={"a"}
+                fontSize={"md"}
+                fontWeight={600}
+                color={"white"}
+                bg={styles.color}
+                href={"#"}
+                _hover={{
+                  bg: "#A7D2CB",
+                }}
+              >
+                Log out
+              </Button>
+            </>
+          ) : (
+            <>
+              <LoginModal />
+            </>
+          )}
         </Stack>
       </Flex>
 
