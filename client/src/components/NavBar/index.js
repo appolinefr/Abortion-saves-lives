@@ -117,7 +117,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Info",
-    href: "#",
+    href: "info",
   },
   {
     label: "Contact",

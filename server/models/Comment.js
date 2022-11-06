@@ -1,16 +1,15 @@
 const { Schema, model } = require("mongoose");
 
 const commentSchema = new Schema({
-  commentTitle: {
-    type: String,
-    maxLength: 30,
-    required: true,
-    trim: true,
-  },
   commentBody: {
     type: String,
     minLength: 20,
     maxLength: 300,
+    required: true,
+    trim: true,
+  },
+  commentAuthor: {
+    type: String,
     required: true,
     trim: true,
   },

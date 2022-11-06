@@ -11,8 +11,8 @@ const typeDefs = gql`
 
   type Comment {
     _id: ID
-    commentTitle: String
     commentBody: String
+    commentAuthor: String
     createAt: String
   }
 
@@ -21,20 +21,32 @@ const typeDefs = gql`
     user: User
   }
 
+  type Facility {
+    _id: ID
+    name: String
+    address: String
+    phone: String
+    surgicalAbortion: Boolean
+    medicalAbortion: Boolean
+    cost: String
+    comments: [Comment]
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
     comments(username: String!): [Comment]
     comment(commentId: ID!): Comment
+    facilities: [Facility]
+    facility(facilityId: ID!): Facility
     me: User
   }
 
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
-    addComment(commentTitle: String!, commentBody: String!): Comment
-    updateComment(commentId: ID!, commentBody: String!): Comment
-    removeComment(commentId: ID!): Comment
+    addComment(commentBody: String!, commentAuthor: String!): Comment
+    addFacility(name: String!, address: String!, phone: String!): Facility
   }
 `;
 

@@ -11,6 +11,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Text,
   Input,
   InputGroup,
   InputLeftElement,
@@ -59,7 +60,7 @@ export default function LoginModal() {
                 />
               </InputGroup>
             </FormControl>
-            <FormControl isRequired mt={4}>
+            <FormControl isRequired mt={4} mb={4}>
               <FormLabel>Password</FormLabel>
               <Input
                 type="password"
@@ -68,6 +69,17 @@ export default function LoginModal() {
                 focusBorderColor="#FF5677"
               />
             </FormControl>
+            <Text
+              color={"gray.600"}
+              as={"a"}
+              href={"/"}
+              _hover={{
+                textDecoration: "underline",
+                color: "#FF5677",
+              }}
+            >
+              No account? Back to main page to sign up
+            </Text>
           </ModalBody>
           <ModalFooter>
             <Button

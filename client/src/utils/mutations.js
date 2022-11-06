@@ -34,3 +34,22 @@ export const ADD_COMMENT = gql`
     }
   }
 `;
+
+export const ADD_FACILITY = gql`
+  mutation addFacility(
+    $facilitytId: ID!
+    $name: String!
+    $address: String!
+    $phone: String!
+  ) {
+    addFacility(facilitytId: $facilitytId, name: $name, address: $address, phone: $phone) {
+      _id
+      name
+      address
+      phone
+      surgicalAbortion
+      medicalAbortion
+      cost
+    }
+  }
+`;

@@ -5,7 +5,8 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-
+import About from "./pages/About";
+import Info from "./pages/Info";
 function App() {
   return (
     <ChakraProvider>
@@ -14,6 +15,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/info" element={<Info />} />
         </Routes>
         <Footer />
       </Router>

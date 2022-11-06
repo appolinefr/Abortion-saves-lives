@@ -16,6 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 import { MdOutlineQuestionAnswer } from "react-icons/md";
+
 const medicalFeatures = [
   {
     id: 1,
