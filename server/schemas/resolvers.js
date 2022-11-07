@@ -20,8 +20,8 @@ const resolvers = {
     facilities: async () => {
       return Facility.find().populate("comments");
     },
-    facility: async (parent, { name }) => {
-      return Facility.findOne({ name }).populate("comments");
+    facility: async (parent, { facilityId }) => {
+      return Facility.findOne({ facilityId }).populate("comments");
     },
     me: async (parent, args, context) => {
       if (context.user) {

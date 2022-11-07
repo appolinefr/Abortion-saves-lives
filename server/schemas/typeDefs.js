@@ -38,7 +38,7 @@ const typeDefs = gql`
     comments: [Comment]
     comment(commentId: ID!): Comment
     facilities: [Facility]
-    facility(facilityID: ID!): Facility
+    facility(facilityId: ID!): Facility
     me: User
   }
 

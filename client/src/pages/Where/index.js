@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
+import {Center} from "@chakra-ui/react";
 
 import FacilityPageHero from "../../components/FacilitiesPageHero";
 import FacilitiesList from "../../components/FacilitiesList";
@@ -14,7 +15,7 @@ export default function Where() {
     <main>
       <FacilityPageHero />
       {loading ? (
-        <div>Loading...</div>
+        <Center fontSize={"2xl"}>Loading...</Center>
       ) : (
         <FacilitiesList facilities={facilities} />
       )}

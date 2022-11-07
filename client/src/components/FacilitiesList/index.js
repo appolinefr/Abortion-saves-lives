@@ -12,13 +12,14 @@ import {
   Button,
   SimpleGrid,
   Container,
+  Heading
 } from "@chakra-ui/react";
 import { CheckIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import { HiCurrencyDollar } from "react-icons/hi";
 
-const FacilitiesList = ({ facilities = [] }) => {
+const FacilitiesList = ({ facilities }) => {
   if (!facilities.length) {
-    return <h3>No facilities Yet</h3>;
+    return <Heading>No facilities Yet</Heading>;
   }
 
   return (
@@ -87,7 +88,7 @@ const FacilitiesList = ({ facilities = [] }) => {
                     Cost of procedure: {facility.cost}
                   </ListItem>
                 </List>
-                <Link to={`/where/${facility._id}`}>
+                <Link to={`/facilities/${facility._id}`}>
                   <Button
                     mt={10}
                     w={"full"}

@@ -6,11 +6,9 @@ const CommentList = ({ comments = [] }) => {
   if (!comments.length) {
     return (
       <Center py={6} my={{ base: 20, md: 20, lg: 20, xl: 20 }}>
-        <Box maxW={"330px"} w={"full"} rounded={"md"}>
-          <Heading my={{ base: 24, md: 20, lg: 40, xl: 40 }}>
-            No Comments Yet
-          </Heading>
-        </Box>
+        <Heading my={{ base: 6, md: 10, lg: 20, xl: 20 }}>
+          No Comments Yet
+        </Heading>
       </Center>
     );
   }

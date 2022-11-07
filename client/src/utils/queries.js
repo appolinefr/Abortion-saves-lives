@@ -36,7 +36,7 @@ export const QUERY_FACILITIES = gql`
   }
 `;
 
-export const QUERY_SINGLE_FACILITy = gql`
+export const QUERY_SINGLE_FACILITY = gql`
   query getFacility($facilityId: ID!) {
     facility(facilityId: $facilityId) {
       _id
