@@ -151,6 +151,10 @@ const NAV_ITEMS = [
     label: "Contact",
     href: "contact",
   },
+  {
+    label: "Share",
+    href: "share",
+  },
 ];
 
 const DesktopNav = () => {

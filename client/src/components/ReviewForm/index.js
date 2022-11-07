@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+// import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import {
@@ -9,29 +10,29 @@ import {
   FormLabel,
   Textarea,
   VStack,
-  Center
 } from "@chakra-ui/react";
 
-import { ADD_COMMENT } from "../../utils/mutations";
+import { ADD_REVIEW } from "../../utils/mutations";
 
 // import Auth from '../../utils/auth';
 
-const CommentForm = ({ facilityId }) => {
-  const [commentBody, setCommentBody] = useState();
+const ReviewForm = ({ facilityId }) => {
+  const [reviewText, setReviewText] = useState();
 
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
+  const [addReview, { error }] = useMutation(ADD_REVIEW);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await addComment({
+      const { data } = await addReview({
         variables: {
-          commentBody,
+          facilityId,
+          reviewText,
           //   commentAuthor: Auth.getProfile().data.username,
         },
       });
-      console.log(data);
-      setCommentBody("");
+console.log(data)
+      setReviewText("");
     } catch (err) {
       console.error(err);
     }
@@ -41,12 +42,16 @@ const CommentForm = ({ facilityId }) => {
     const { name, value } = event.target;
 
     if (name === "reviewText" && value.length <= 280) {
-      setCommentBody(value);
+      setReviewText(value);
     }
   };
 
   return (
-    <Center mt={10}>
+    <>
+      <Text>
+        {error ? "Error!" : ""}
+        {error && <Text as="span">{error.message}</Text>}
+      </Text>
       <Box
         borderRadius="lg"
         bg={"gray.100"}
@@ -55,19 +60,15 @@ const CommentForm = ({ facilityId }) => {
         shadow="base"
         w={{ base: "md", md: "lg", lg: "xl" }}
       >
-        <Text>
-          {error ? "Error!" : ""}
-          {error && <Text as="span">{error.message}</Text>}
-        </Text>
         <VStack spacing={5}>
-          <FormControl>
+          <FormControl isRequired>
             <FormLabel textAlign={"center"} mb={4}>
-              Share your story
+              Your review
             </FormLabel>
             <Textarea
               bg="white"
               name="message"
-              value={commentBody}
+              value={reviewText}
               onChange={handleChange}
               rows={6}
               focusBorderColor="#FF5677"
@@ -82,12 +83,12 @@ const CommentForm = ({ facilityId }) => {
             type="click"
             onClick={handleFormSubmit}
           >
-            Share
+            Add review
           </Button>
         </VStack>
       </Box>
-    </Center>
+    </>
   );
 };
 
-export default CommentForm;
+export default ReviewForm;

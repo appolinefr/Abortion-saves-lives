@@ -18,6 +18,7 @@ import About from "./pages/About";
 import Info from "./pages/Info";
 import Where from "./pages/Where";
 import SingleFacility from "./pages/SingleFacility";
+import Share from "./pages/Share";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -54,7 +55,11 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/info" element={<Info />} />
             <Route path="/facilities" element={<Where />} />
-            <Route path="/facilities/:facilityId" element={<SingleFacility/>} />
+            <Route
+              path="/facilities/:facilityId"
+              element={<SingleFacility />}
+            />
+            <Route path="/share" element={<Share />} />
           </Routes>
           <Footer />
         </Router>

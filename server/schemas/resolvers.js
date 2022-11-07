@@ -54,21 +54,21 @@ const resolvers = {
       return { token, user };
     },
 
-    addComment: async (parent, { commentBody, commentAuthor }) => {
-      const comment = await Comment.create({ commentBody, commentAuthor });
+    addComment: async (parent, { commentBody}) => {
+      const comment = await Comment.create({ commentBody});
 
-      await User.findOneAndUpdate(
-        { username: commentAuthor },
-        { $addToSet: { comments: comment._id } }
-      );
+      // await User.findOneAndUpdate(
+      //   { username: commentAuthor },
+      //   { $addToSet: { comments: comment._id } }
+      // );
 
       return comment;
     },
 
-    addReview: async (parent, { facilityId, reviewText, reviewAuthor }) => {
+    addReview: async (parent, { facilityId, reviewText}) => {
       return Facility.findOneAndUpdate(
         { _id: facilityId },
-        { $addToSet: { reviews: { reviewText, reviewAuthor } } },
+        { $addToSet: { reviews: { reviewText} } },
         {
           new: true,
           runValidators: true,

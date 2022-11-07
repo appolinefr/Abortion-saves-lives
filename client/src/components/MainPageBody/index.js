@@ -30,7 +30,7 @@ const Feature = ({ heading, text, icon, button }) => {
   );
 };
 
-export default function gridListWithCTA() {
+export default function MainPageBody() {
   return (
     <Box as={Container} maxW="7xl" mt={14} p={4}>
       <Grid
@@ -70,13 +70,13 @@ export default function gridListWithCTA() {
           }
           button={
             <Button
+              href={`/info`}
               my={6}
               as={"a"}
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
               bg={styles.color}
-              href={"#"}
               _hover={{
                 bg: "#A7D2CB",
               }}
@@ -99,7 +99,7 @@ export default function gridListWithCTA() {
               fontWeight={600}
               color={"white"}
               bg={styles.color}
-              href={"#"}
+              href={`/facilities`}
               _hover={{
                 bg: "#A7D2CB",
               }}
@@ -122,7 +122,7 @@ export default function gridListWithCTA() {
               fontWeight={600}
               color={"white"}
               bg={styles.color}
-              href={"#"}
+              href={"/share"}
               _hover={{
                 bg: "#A7D2CB",
               }}

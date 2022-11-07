@@ -1,66 +1,90 @@
 import React from "react";
 
-import { Center, Box, Stack, Text, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  Center,
+  Text,
+  Stack,
+  List,
+  ListItem,
+  Button,
+  SimpleGrid,
+  Container,
+  Heading,
+} from "@chakra-ui/react";
 
-const CommentList = ({ reviews = [] }) => {
-  if (!reviews.length) {
-    return (
-      <Center py={6} my={{ base: 20, md: 20, lg: 20, xl: 20 }}>
-        <Heading my={{ base: 6, md: 10, lg: 20, xl: 20 }}>
-          No Comments Yet
-        </Heading>
-      </Center>
-    );
+const CommentsList = ({ comments }) => {
+  if (!comments.length) {
+    return <Heading>No facilities Yet</Heading>;
   }
+
   return (
-    <Center py={6} mb={6}>
-      <Box
-        maxW={"330px"}
-        w={"full"}
-        boxShadow={"2xl"}
-        rounded={"md"}
-        overflow={"hidden"}
-      >
-        <Stack textAlign={"center"} p={6} align={"center"}>
-          <Text
-            fontSize={"sm"}
-            fontWeight={500}
-            bg={"#A7D2CB"}
-            p={2}
-            px={3}
-            color={"white"}
-            rounded={"full"}
-          >
-            {reviews.createdAt}
-          </Text>
-        </Stack>
-        <Box px={6} py={10}>
-          <Text
-            fontSize={"sm"}
-            fontWeight={500}
-            bg={"#A7D2CB"}
-            p={2}
-            px={3}
-            color={"white"}
-            rounded={"full"}
-          >
-            {reviews.reviewText}
-          </Text>
-          <Text
-            fontSize={"sm"}
-            fontWeight={500}
-            bg={"#A7D2CB"}
-            p={2}
-            px={3}
-            color={"white"}
-            rounded={"full"}
-          >
-            {reviews.reviewAuthor}
-          </Text>
-        </Box>
-      </Box>
-    </Center>
+    <Container maxW={"6xl"}>
+      <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} maxW={"6xl"}>
+        {comments.map((facility) => (
+          <Center key={facility._id} py={2}>
+            <Box
+              maxW={"350px"}
+              w={"full"}
+              boxShadow={"xl"}
+              rounded={"md"}
+              overflow={"hidden"}
+            >
+              <Stack
+                textAlign={"center"}
+                p={6}
+                align={"center"}
+                bg={"gray.100"}
+              >
+                <Text
+                  fontSize={"lg"}
+                  fontWeight={500}
+                  bg={"#A7D2CB"}
+                  p={2}
+                  px={3}
+                  mb={4}
+                  color={"white"}
+                  rounded={"full"}
+                >
+                  {facility.name}
+                </Text>
+                <Stack direction={"column"} align={"center"} justify={"center"}>
+                  <Text mb={2}>{facility.address}</Text>
+                  <Text fontWeight={800}>{facility.phone}</Text>
+                </Stack>
+              </Stack>
+              <Box px={6} pb={10} pt={2}>
+                <List spacing={3}>
+                  <ListItem>
+
+                    Medical abortion: {facility.medicalAbortion}
+                  </ListItem>
+                  <ListItem>
+                    Surgical abortion: {facility.surgicalAbortion}
+                  </ListItem>
+                  <ListItem>
+                    Cost of procedure: {facility.cost}
+                  </ListItem>
+                </List>
+                  <Button
+                    mt={10}
+                    w={"full"}
+                    bg={"#FF5677"}
+                    color={"white"}
+                    rounded={"xl"}
+                    _hover={{
+                      bg: "#A7D2CB",
+                    }}
+                  >
+                    View reviews
+                  </Button>
+              </Box>
+            </Box>
+          </Center>
+        ))}
+      </SimpleGrid>
+    </Container>
   );
 };
 
-export default CommentList;
+export default CommentsList;

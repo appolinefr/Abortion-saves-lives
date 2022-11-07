@@ -36,7 +36,6 @@ const facilitySchema = new Schema({
       },
       reviewAuthor: {
         type: String,
-        required: true,
       },
       createdAt: {
         type: Date,

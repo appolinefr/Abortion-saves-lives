@@ -99,7 +99,7 @@ const FacilitiesList = ({ facilities }) => {
                       bg: "#A7D2CB",
                     }}
                   >
-                    View comments
+                    View reviews
                   </Button>
                 </Link>
               </Box>

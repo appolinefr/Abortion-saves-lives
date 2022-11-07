@@ -10,7 +10,6 @@ const commentSchema = new Schema({
   },
   commentAuthor: {
     type: String,
-    required: true,
     trim: true,
   },
   createdAt: {

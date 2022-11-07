@@ -13,17 +13,17 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-import CommentList from "../../components/CommentList";
-import CommentForm from "../../components/CommentForm";
+import ReviewList from "../../components/ReviewList";
+import ReviewForm from "../../components/ReviewForm";
 
 import { QUERY_SINGLE_FACILITY } from "../../utils/queries";
 
 const SingleFacility = () => {
-  // Use `useParams()` to retrieve value of the route parameter `:facilityId`
+
   const { facilityId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_FACILITY, {
-    // pass URL parameter
+
     variables: { facilityId: facilityId },
   });
 
@@ -39,7 +39,6 @@ const SingleFacility = () => {
         <Stack
           as={Box}
           textAlign={"center"}
-          // spacing={{ base: 8, md: 14 }}
           py={{ base: 14, md: 20 }}
         >
           <Heading
@@ -59,12 +58,12 @@ const SingleFacility = () => {
           spacing={10}
           maxW={"6xl"}
         >
-          No comments yet<CommentList comments={facility.reviews} />
+        <ReviewList reviews={facility.reviews} />
         </SimpleGrid>
       </Container>
       <Container>
         <Stack>
-          <CommentForm facilityId={facility._id} />
+          <ReviewForm facilityId={facility._id} />
         </Stack>
       </Container>
     </>
