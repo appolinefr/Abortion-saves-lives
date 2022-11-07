@@ -36,10 +36,10 @@ export const ADD_COMMENT = gql`
 
 export const ADD_FACILITY = gql`
   mutation addFacility(
-    $facilitytId: ID!
-    $name: String!
-    $address: String!
-    $phone: String!
+    $facilitytId: ID!,
+    $name: String!,
+    $address: String!,
+    $phone: String!,
   ) {
     addFacility(facilitytId: $facilitytId, name: $name, address: $address, phone: $phone) {
       _id
@@ -56,13 +56,13 @@ export const ADD_FACILITY = gql`
 
 export const ADD_REVIEW = gql`
   mutation addReview(
-    $facilityId: ID!
-    $reviewText: String!
+    $facilityId: ID!,
+    $reviewText: String!,
     $reviewAuthor: String!
   ) {
     addReview(
-      facilityId: $facilityId
-      reviewText: $reviewText
+      facilityId: $facilityId,
+      reviewText: $reviewText,
       reviewAuthor: $reviewAuthor
     ) {
       _id

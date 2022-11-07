@@ -28,8 +28,16 @@ const facilitySchema = new Schema({
   },
   reviews: [
     {
-      reviewText: { type: String, required: true },
-      reviewAuthor: { type: String, required: true },
+      reviewText: {
+        type: String,
+        required: true,
+        minlength: 1,
+        maxlength: 280,
+      },
+      reviewAuthor: {
+        type: String,
+        required: true,
+      },
       createdAt: {
         type: Date,
         default: Date.now,

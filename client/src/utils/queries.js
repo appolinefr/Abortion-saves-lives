@@ -50,7 +50,6 @@ export const QUERY_SINGLE_FACILITY = gql`
         _id
         reviewText
         reviewAuthor
-
         createdAt
       }
     }
@@ -59,7 +58,7 @@ export const QUERY_SINGLE_FACILITY = gql`
 
 export const QUERY_COMMENTS = gql`
   query getComments {
-    comment {
+    comments {
       _id
       commentAuthor
       commentBody

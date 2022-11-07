@@ -77,20 +77,6 @@ const resolvers = {
     },
   },
 
-  addFacility: async (
-    parent,
-    { name, address, phone, medicalAbortion, surgicalAbortion, cost }
-  ) => {
-    const facility = await Facility.create({
-      name,
-      address,
-      phone,
-      medicalAbortion,
-      surgicalAbortion,
-      cost,
-    });
 
-    return facility;
-  },
 };
 module.exports = resolvers;
