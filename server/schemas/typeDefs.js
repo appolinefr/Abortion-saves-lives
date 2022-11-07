@@ -32,11 +32,17 @@ const typeDefs = gql`
     comments: [Comment]
   }
 
+  type Reviews {
+    _id: ID
+    reviewText: String
+    reviewAuthor: String
+    createdAt
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
     comments: [Comment]
-    comment(commentId: ID!): Comment
     facilities: [Facility]
     facility(facilityId: ID!): Facility
     me: User
@@ -46,6 +52,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!, commentAuthor: String!): Comment
+    addReview(facilityId: ID! reviewText: String! reviewAuthor: String!): Facility
   }
 `;
 

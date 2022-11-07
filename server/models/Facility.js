@@ -26,10 +26,15 @@ const facilitySchema = new Schema({
   cost: {
     type: String,
   },
-  comments: [
+  reviews: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
+      reviewText: { type: String, required: true },
+      reviewAuthor: { type: String, required: true },
+      createdAt: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     },
   ],
 });

@@ -26,10 +26,10 @@ export const QUERY_FACILITIES = gql`
       medicalAbortion
       surgicalAbortion
       cost
-      comments {
+      reviews {
         _id
-        commentAuthor
-        commentBody
+        reviewText
+        reviewAuthor
         createdAt
       }
     }
@@ -46,10 +46,11 @@ export const QUERY_SINGLE_FACILITY = gql`
       medicalAbortion
       surgicalAbortion
       cost
-      comments {
+      reviews {
         _id
-        commentAuthor
-        commentBody
+        reviewText
+        reviewAuthor
+
         createdAt
       }
     }
@@ -93,4 +94,3 @@ export const QUERY_ME = gql`
     }
   }
 `;
-

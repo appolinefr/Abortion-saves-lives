@@ -2,8 +2,8 @@ import React from "react";
 
 import { Center, Box, Stack, Text, Heading } from "@chakra-ui/react";
 
-const CommentList = ({ comments = [] }) => {
-  if (!comments.length) {
+const CommentList = ({ reviews = [] }) => {
+  if (!reviews.length) {
     return (
       <Center py={6} my={{ base: 20, md: 20, lg: 20, xl: 20 }}>
         <Heading my={{ base: 6, md: 10, lg: 20, xl: 20 }}>
@@ -31,7 +31,7 @@ const CommentList = ({ comments = [] }) => {
             color={"white"}
             rounded={"full"}
           >
-            {comments.createdAt}
+            {reviews.createdAt}
           </Text>
         </Stack>
         <Box px={6} py={10}>
@@ -44,7 +44,7 @@ const CommentList = ({ comments = [] }) => {
             color={"white"}
             rounded={"full"}
           >
-            {comments.commentBody}
+            {reviews.reviewText}
           </Text>
           <Text
             fontSize={"sm"}
@@ -55,7 +55,7 @@ const CommentList = ({ comments = [] }) => {
             color={"white"}
             rounded={"full"}
           >
-            {comments.commentAuthor}
+            {reviews.reviewAuthor}
           </Text>
         </Box>
       </Box>

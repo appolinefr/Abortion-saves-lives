@@ -49,7 +49,35 @@ export const ADD_FACILITY = gql`
       surgicalAbortion
       medicalAbortion
       cost
-      comments
+      reviews
+    }
+  }
+`;
+
+export const ADD_REVIEW = gql`
+  mutation addReview(
+    $facilityId: ID!
+    $reviewText: String!
+    $reviewAuthor: String!
+  ) {
+    addReview(
+      facilityId: $facilityId
+      reviewText: $reviewText
+      reviewAuthor: $reviewAuthor
+    ) {
+      _id
+      name
+      address
+      phone
+      surgicalAbortion
+      medicalAbortion
+      cost
+      reviews {
+        _id
+        reviewText
+        reviewAuthor
+        createdAt
+      }
     }
   }
 `;

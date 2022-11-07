@@ -18,10 +18,10 @@ const resolvers = {
       return Comment.findOne({ _id: commentId });
     },
     facilities: async () => {
-      return Facility.find().populate("comments");
+      return Facility.find();
     },
     facility: async (parent, { facilityId }) => {
-      return Facility.findOne({ facilityId }).populate("comments");
+      return Facility.findOne({ facilityId }).populate("reviews");
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -54,29 +54,43 @@ const resolvers = {
       return { token, user };
     },
 
-    // addFacility: async (parent, { username, email, password }) => {
-    //   const user = await User.create({ username, email, password });
-    //   const token = signToken(user);
-    //   return;
-    // },
+    addComment: async (parent, { commentBody, commentAuthor }) => {
+      const comment = await Comment.create({ commentBody, commentAuthor });
 
-    addComment: async (parent, { commentBody }, context) => {
-      if (context.user) {
-        const comment = await Comment.create({
-          commentBody,
-          commentAuthor: context.user.username,
-        });
+      await User.findOneAndUpdate(
+        { username: commentAuthor },
+        { $addToSet: { comments: comment._id } }
+      );
 
-        await Facility.findOneAndUpdate(
-          { _id: context.facility._id },
-          { $addToSet: { comments: comment._id } }
-        );
+      return comment;
+    },
 
-        return comment;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    addReview: async (parent, { facilityId, reviewText, reviewAuthor }) => {
+      return Facility.findOneAndUpdate(
+        { _id: facilityId },
+        { $addToSet: { reviews: { reviewText, reviewAuthor } } },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
     },
   },
-};
 
+  addFacility: async (
+    parent,
+    { name, address, phone, medicalAbortion, surgicalAbortion, cost }
+  ) => {
+    const facility = await Facility.create({
+      name,
+      address,
+      phone,
+      medicalAbortion,
+      surgicalAbortion,
+      cost,
+    });
+
+    return facility;
+  },
+};
 module.exports = resolvers;

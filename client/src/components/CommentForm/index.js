@@ -12,14 +12,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 
-import { ADD_COMMENT } from "../../utils/mutations";
+import { ADD_REVIEW } from "../../utils/mutations";
 
 // import Auth from '../../utils/auth';
 
 const CommentForm = ({ facilityId }) => {
-  const [commentBody, setCommentBody] = useState("");
+  const [reviewText, setCommentBody] = useState("");
 
-  const [addComment, { error }] = useMutation(ADD_COMMENT);
+  const [addComment, { error }] = useMutation(ADD_REVIEW);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -27,7 +27,7 @@ const CommentForm = ({ facilityId }) => {
       const { data } = await addComment({
         variables: {
           facilityId,
-          commentBody,
+          reviewText,
           //   commentAuthor: Auth.getProfile().data.username,
         },
       });
@@ -53,8 +53,8 @@ const CommentForm = ({ facilityId }) => {
         {error && <Text as="span">{error.message}</Text>}
       </Text>
       <Box
-        //   bg={useColorModeValue("white", "gray.700")}
         borderRadius="lg"
+        bg={"gray.100"}
         p={8}
         //   color={useColorModeValue("gray.700", "whiteAlpha.900")}
         shadow="base"
@@ -62,12 +62,12 @@ const CommentForm = ({ facilityId }) => {
       >
         <VStack spacing={5}>
           <FormControl isRequired onSubmit={handleFormSubmit}>
-            <FormLabel>Message</FormLabel>
+            <FormLabel textAlign={'center'}mb={4}>Your comment</FormLabel>
             <Textarea
+              bg="white"
               name="message"
-              value={commentBody}
+              value={reviewText}
               onChange={handleChange}
-              placeholder="Your Message"
               rows={6}
               focusBorderColor="#FF5677"
             />
