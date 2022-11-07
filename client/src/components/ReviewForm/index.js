@@ -67,7 +67,7 @@ console.log(data)
             </FormLabel>
             <Textarea
               bg="white"
-              name="message"
+              name="reviewText"
               value={reviewText}
               onChange={handleChange}
               rows={6}

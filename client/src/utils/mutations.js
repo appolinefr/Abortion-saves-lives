@@ -25,24 +25,23 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_COMMENT = gql`
-  mutation addComment($commentId: ID!, $commentBody: String!) {
-    addComment(commentId: $commentId, commentBody: $commentBody) {
+  mutation addComment($commentBody: String!) {
+    addComment(commentBody: $commentBody) {
       _id
       commentBody
-      createAt
+      commentAuthor
+      createdAt
     }
   }
 `;
 
 export const ADD_FACILITY = gql`
   mutation addFacility(
-    $facilitytId: ID!,
     $name: String!,
     $address: String!,
     $phone: String!
   ) {
     addFacility(
-      facilitytId: $facilitytId
       name: $name
       address: $address
       phone: $phone

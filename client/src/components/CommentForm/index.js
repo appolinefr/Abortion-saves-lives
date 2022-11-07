@@ -16,7 +16,7 @@ import { ADD_COMMENT } from "../../utils/mutations";
 
 // import Auth from '../../utils/auth';
 
-const CommentForm = ({ facilityId }) => {
+const CommentForm = () => {
   const [commentBody, setCommentBody] = useState();
 
   const [addComment, { error }] = useMutation(ADD_COMMENT);
@@ -40,7 +40,7 @@ const CommentForm = ({ facilityId }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "reviewText" && value.length <= 280) {
+    if (name === "commentBody" && value.length <= 280) {
       setCommentBody(value);
     }
   };
@@ -66,7 +66,7 @@ const CommentForm = ({ facilityId }) => {
             </FormLabel>
             <Textarea
               bg="white"
-              name="message"
+              name="commentBody"
               value={commentBody}
               onChange={handleChange}
               rows={6}

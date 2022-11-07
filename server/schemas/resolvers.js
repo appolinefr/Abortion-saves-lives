@@ -10,9 +10,8 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("comments");
     },
-    comments: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Comment.find(params).sort({ createdAt: -1 });
+    comments: async () => {
+      return Comment.find().sort({ createdAt: -1 });
     },
     comment: async (parent, { commentId }) => {
       return Comment.findOne({ _id: commentId });
