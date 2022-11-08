@@ -9,7 +9,9 @@ import {
 import SignupModal from "../Signup";
 
 const styles = {
-  color: "#FF5677",
+  mainColor: "#FF5677",
+  secGreenColor: "#A7D2CB",
+  grey: "gray.100",
 };
 
 export default function MainPageHero() {
@@ -46,10 +48,10 @@ export default function MainPageHero() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.color}
+              bg={styles.mainColor}
               href={"#"}
               _hover={{
-                bg: "#A7D2CB",
+                bg: styles.secGreenColor,
               }}
             >
               Support us

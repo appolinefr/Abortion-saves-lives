@@ -17,6 +17,12 @@ import {
 import { CheckIcon, SmallCloseIcon } from "@chakra-ui/icons";
 import { HiCurrencyDollar } from "react-icons/hi";
 
+const styles = {
+  mainColor: "#FF5677",
+  secGreenColor: "#A7D2CB",
+  grey: "gray.100",
+};
+
 const FacilitiesList = ({ facilities }) => {
   if (!facilities.length) {
     return <Heading>No facilities Yet</Heading>;
@@ -38,12 +44,12 @@ const FacilitiesList = ({ facilities }) => {
                 textAlign={"center"}
                 p={6}
                 align={"center"}
-                bg={"gray.100"}
+                bg={styles.grey}
               >
                 <Text
                   fontSize={"lg"}
                   fontWeight={500}
-                  bg={"#A7D2CB"}
+                  bg={styles.secGreenColor}
                   p={2}
                   px={3}
                   mb={4}
@@ -62,7 +68,7 @@ const FacilitiesList = ({ facilities }) => {
                   <ListItem>
                     {facility.medicalAbortion === "Yes" ? (
                       <>
-                        <ListIcon as={CheckIcon} color="#A7D2CB" />
+                        <ListIcon as={CheckIcon} color={styles.secGreenColor} />
                       </>
                     ) : (
                       <>
@@ -74,7 +80,7 @@ const FacilitiesList = ({ facilities }) => {
                   <ListItem>
                     {facility.surgicalAbortion === "Yes" ? (
                       <>
-                        <ListIcon as={CheckIcon} color="#A7D2CB" />
+                        <ListIcon as={CheckIcon} color={styles.secGreenColor} />
                       </>
                     ) : (
                       <>
@@ -92,11 +98,11 @@ const FacilitiesList = ({ facilities }) => {
                   <Button
                     mt={10}
                     w={"full"}
-                    bg={"#FF5677"}
+                    bg={styles.mainColor}
                     color={"white"}
                     rounded={"xl"}
                     _hover={{
-                      bg: "#A7D2CB",
+                      bg: styles.secGreenColor,
                     }}
                   >
                     View reviews

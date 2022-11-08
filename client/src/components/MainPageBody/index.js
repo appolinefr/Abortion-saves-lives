@@ -14,8 +14,11 @@ import {
 import { FiInfo, FiMap, FiShare2 } from "react-icons/fi";
 
 const styles = {
-  color: "#FF5677",
+  mainColor: "#FF5677",
+  secGreenColor: "#A7D2CB",
+  grey: "gray.100",
 };
+
 
 const Feature = ({ heading, text, icon, button }) => {
   return (
@@ -45,7 +48,7 @@ export default function MainPageBody() {
           <VStack alignItems="flex-start" spacing="20px">
             <chakra.h2 fontSize="3xl" fontWeight="400">
               Everything you need to know about&nbsp;
-              <Text as={"span"} color={styles.color}>
+              <Text as={"span"} color={styles.mainColor}>
                 abortion
               </Text>
               &nbsp;in SA
@@ -63,7 +66,9 @@ export default function MainPageBody() {
         gap={{ base: "8", sm: "12", md: "16" }}
       >
         <Feature
-          icon={<Icon as={FiInfo} w={10} h={10} color={styles.color} mb={4} />}
+          icon={
+            <Icon as={FiInfo} w={10} h={10} color={styles.mainColor} mb={4} />
+          }
           heading={"Get information about abortion"}
           text={
             "Abortion is a safe and legal way to end a pregnancy. This will help you understand your abortion optionsand navigate the best care pathway."
@@ -76,9 +81,9 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.color}
+              bg={styles.mainColor}
               _hover={{
-                bg: "#A7D2CB",
+                bg: styles.secGreenColor,
               }}
             >
               Learn more
@@ -86,7 +91,9 @@ export default function MainPageBody() {
           }
         />
         <Feature
-          icon={<Icon as={FiMap} w={10} h={10} color={styles.color} mb={4} />}
+          icon={
+            <Icon as={FiMap} w={10} h={10} color={styles.mainColor} mb={4} />
+          }
           heading={"Where can I get an abortion"}
           text={
             "How do I find an abortion clinic or hospital? This tool will help you find the relevant and nearest health service in South Australia."
@@ -98,10 +105,10 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.color}
+              bg={styles.mainColor}
               href={`/facilities`}
               _hover={{
-                bg: "#A7D2CB",
+                bg: styles.secGreenColor,
               }}
             >
               Learn more
@@ -110,7 +117,7 @@ export default function MainPageBody() {
         />
         <Feature
           icon={
-            <Icon as={FiShare2} w={10} h={10} color={styles.color} mb={4} />
+            <Icon as={FiShare2} w={10} h={10} color={styles.mainColor} mb={4} />
           }
           heading={"I want to share my experience"}
           text={"Short text describing one of you features/service"}
@@ -121,10 +128,10 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.color}
+              bg={styles.mainColor}
               href={"/share"}
               _hover={{
-                bg: "#A7D2CB",
+                bg: styles.secGreenColor,
               }}
             >
               Learn more

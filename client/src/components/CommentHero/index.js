@@ -8,7 +8,9 @@ import {
 } from "@chakra-ui/react";
 
 const styles = {
-  pink: "#FF5677",
+  mainColor: "#FF5677",
+  secGreenColor: "#A7D2CB",
+  grey: "gray.100",
 };
 
 export default function CommentHero() {
@@ -31,7 +33,7 @@ export default function CommentHero() {
             lineHeight={"130%"}
           >
             Share your&nbsp;
-            <Text as="span" color={styles.pink}>abortion</Text>
+            <Text as="span" color={styles.mainColor}>abortion</Text>
           </Heading>
         </Stack>
       </Container>

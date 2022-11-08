@@ -21,6 +21,16 @@ import Auth from "../../utils/auth";
 const styles = {
   color: "#FF5677",
 };
+
+// const styles = {
+//   purpleColor: "#9F79EA",
+//   secOrangeColor: "#FD5E00",
+//   secGreenColor: "#A7D2CB",
+//   darkGreen: "#1E4755",
+//   pinkMain: "#FF5677",
+//   grey: "gray.100",
+// };
+
 export default function NavBar() {
   const { isOpen, onToggle } = useDisclosure();
   const logout = (event) => {
@@ -148,12 +158,12 @@ const NAV_ITEMS = [
     href: "info",
   },
   {
-    label: "Contact",
-    href: "contact",
-  },
-  {
     label: "Share",
     href: "share",
+  },
+  {
+    label: "Contact",
+    href: "contact",
   },
 ];
 

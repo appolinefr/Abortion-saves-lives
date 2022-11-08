@@ -15,7 +15,7 @@ const typeDefs = gql`
     createdAt: String
   }
 
-    type Review {
+  type Review {
     _id: ID
     reviewText: String
     reviewAuthor: String
@@ -53,9 +53,10 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addComment(commentBody: String!): Comment
     addReview(facilityId: ID!, reviewText: String!): Facility
+    removeComment(commentId: ID!): Comment
+    removeReview(facilityId: ID!, reviewId: ID!): Facility
   }
 `;
 
-    // addFacility(name: String!, address: String!, phone: String!): Facility
 
 module.exports = typeDefs;

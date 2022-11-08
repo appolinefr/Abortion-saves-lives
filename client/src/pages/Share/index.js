@@ -16,12 +16,12 @@ export default function Share() {
   return (
     <main>
       <CommentHero />
-      <CommentForm />
       {loading ? (
         <Center fontSize={"2xl"}>Loading...</Center>
       ) : (
         <CommentsList comments={comments} />
       )}
+      <CommentForm />
     </main>
   );
 }

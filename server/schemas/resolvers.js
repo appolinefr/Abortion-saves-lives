@@ -53,8 +53,8 @@ const resolvers = {
       return { token, user };
     },
 
-    addComment: async (parent, { commentBody}) => {
-      const comment = await Comment.create({ commentBody});
+    addComment: async (parent, { commentBody }) => {
+      const comment = await Comment.create({ commentBody });
 
       // await User.findOneAndUpdate(
       //   { username: commentAuthor },
@@ -64,18 +64,29 @@ const resolvers = {
       return comment;
     },
 
-    addReview: async (parent, { facilityId, reviewText}) => {
+    addReview: async (parent, { facilityId, reviewText }) => {
       return Facility.findOneAndUpdate(
         { _id: facilityId },
-        { $addToSet: { reviews: { reviewText} } },
+        { $addToSet: { reviews: { reviewText } } },
         {
           new: true,
           runValidators: true,
         }
       );
     },
+
+    removeComment: async (parent, { commentId }) => {
+      return Comment.findOneAndDelete({ _id: commentId });
+    },
+
+    removeReview: async (parent, { facilityId, reviewId }) => {
+      return Facility.findOneAndUpdate(
+        { _id: facilityId },
+        { $pull: { reviews: { _id: reviewId } } },
+        { new: true }
+      );
+    },
   },
-
-
 };
+
 module.exports = resolvers;
