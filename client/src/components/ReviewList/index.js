@@ -8,6 +8,7 @@ import {
   Container,
   Heading,
 } from "@chakra-ui/react";
+import { DeleteIcon } from "@chakra-ui/icons";
 
 // const styles = {
 //   mainColor: "#FF5677",
@@ -16,10 +17,6 @@ import {
 // };
 
 const ReviewList = ({ reviews }) => {
-  if (!reviews) {
-    return <Heading>No reviews yet</Heading>;
-  }
-
   return (
     <Container maxW={"6xl"} my={12}>
       <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={10} maxW={"6xl"}>
@@ -77,7 +74,7 @@ const ReviewList = ({ reviews }) => {
                 fontWeight={"bold"}
                 fontSize={14}
               >
-                {review.reviewAuthor}
+                {review.reviewAuthor}&nbsp;
                 <chakra.span
                   // fontFamily={"Inter"}
                   fontWeight={"medium"}
@@ -86,6 +83,26 @@ const ReviewList = ({ reviews }) => {
                   - {review.createdAt}
                 </chakra.span>
               </chakra.p>
+              <chakra.button
+                color={"#FF5677"}
+                rounded={"full"}
+                w={10}
+                h={10}
+                mt={2}
+                variant="ghost"
+                cursor={"pointer"}
+                as={"a"}
+                href={"#"}
+                display={"inline-flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                transition={"background 0.3s ease"}
+                _hover={{
+                  bg:  "#FF5677",
+                  color: "white"
+                }}>
+                <DeleteIcon />
+              </chakra.button>
             </Flex>
           </Box>
         ))}

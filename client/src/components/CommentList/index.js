@@ -8,7 +8,7 @@ import {
   Container,
   Heading,
 } from "@chakra-ui/react";
-
+import { DeleteIcon } from "@chakra-ui/icons";
 // const styles = {
 //   mainColor: "#FF5677",
 //   secGreenColor: "#A7D2CB",
@@ -86,6 +86,27 @@ const CommentsList = ({ comments }) => {
                   - {comment.createdAt}
                 </chakra.span>
               </chakra.p>
+              <chakra.button
+                color={"#FF5677"}
+                rounded={"full"}
+                w={10}
+                h={10}
+                mt={2}
+                variant="ghost"
+                cursor={"pointer"}
+                as={"a"}
+                href={"#"}
+                display={"inline-flex"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                transition={"background 0.3s ease"}
+                _hover={{
+                  bg: "#FF5677",
+                  color: "white",
+                }}
+              >
+                <DeleteIcon />
+              </chakra.button>
             </Flex>
           </Box>
         ))}

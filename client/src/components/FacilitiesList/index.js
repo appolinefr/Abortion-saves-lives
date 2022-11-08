@@ -105,7 +105,7 @@ const FacilitiesList = ({ facilities }) => {
                       bg: styles.secGreenColor,
                     }}
                   >
-                    View reviews
+                    View testimonials
                   </Button>
                 </Link>
               </Box>

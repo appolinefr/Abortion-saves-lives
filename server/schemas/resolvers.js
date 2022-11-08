@@ -53,85 +53,93 @@ const resolvers = {
       return { token, user };
     },
 
-    addComment: async (parent, { commentBody }) => {
-      const comment = await Comment.create(
-        { commentBody },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    addComment: async (parent, { commentBody }, context) => {
+      if (context.user) {
+        const comment = await Comment.create(
+          { commentBody, commentAuthor: context.user.username },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
 
-      // await User.findOneAndUpdate(
-      //   { username: commentAuthor },
-      //   { $addToSet: { comments: comment._id } }
-      // );
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { comments: comment._id } }
+        );
 
-      return comment;
+        return comment;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
-    addReview: async (parent, { facilityId, reviewText }) => {
-      return Facility.findOneAndUpdate(
-        { _id: facilityId },
-        { $addToSet: { reviews: { reviewText } } },
-        {
-          new: true,
-          runValidators: true,
-        }
-      );
+    addReview: async (parent, { facilityId, reviewText }, context) => {
+      if (context.user) {
+        return Facility.findOneAndUpdate(
+          { _id: facilityId },
+          {
+            $addToSet: {
+              reviews: { reviewText, reviewAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
-    removeComment: async (parent, { commentId }) => {
-      return Comment.findOneAndDelete({ _id: commentId });
+    removeComment: async (parent, { commentId }, context) => {
+      if (context.user) {
+        const comment = await Comment.findOneAndDelete({
+          _id: commentId,
+          commentAuthor: context.user.username,
+        });
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: { comments: comment._id } }
+        );
+
+        return comment;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
-    removeReview: async (parent, { facilityId, reviewId }) => {
-      return Facility.findOneAndUpdate(
-        { _id: facilityId },
-        { $pull: { reviews: { _id: reviewId } } },
-        { new: true }
-      );
+    removeReview: async (parent, { facilityId, reviewId }, context) => {
+      if (context.user) {
+        return Facility.findOneAndUpdate(
+          { _id: facilityId },
+          {
+            $pull: {
+              reviews: { _id: reviewId, reviewAuthor: context.user.username },
+            },
+          },
+          { new: true }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
 
     removeUser: async (parent, { userId }) => {
       return User.findOneAndDelete({ _id: userId });
     },
   },
-};
+}
+
 
 module.exports = resolvers;
 
-    // removeComment: async (parent, { commentId }, context) => {
-    //   if (context.user) {
-    //     const comment = await Comment.findOneAndDelete({
-    //       _id: commentId,
-    //      commentAuthor: context.user.username,
-    //     });
+//     removeComment: async (parent, { commentId }) => {
+//       return Comment.findOneAndDelete({ _id: commentId });
+//     },
 
-    //     await User.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { comments: comment._id } }
-    //     );
+//     removeReview: async (parent, { facilityId, reviewId }) => {
+//       return Facility.findOneAndUpdate(
+//         { _id: facilityId },
+//         { $pull: { reviews: { _id: reviewId } } },
+//         { new: true }
+//       );
+// };
 
-    //     return comment;
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
-  
-    // removeReview: async (parent, { faciltyId, reviewId }, context) => {
-    //   if (context.user) {
-    //     return Facility.findOneAndUpdate(
-    //       { _id: facilityId },
-    //       {
-    //         $pull: {
-    //           reviews: {
-    //             _id: reviewId,
-    //             reviewAuthor: context.user.username,
-    //           },
-    //         },
-    //       },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },

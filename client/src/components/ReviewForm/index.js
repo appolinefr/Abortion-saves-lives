@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 
 import {
@@ -90,7 +89,7 @@ const ReviewForm = ({ facilityId }) => {
         <VStack spacing={5}>
           <FormControl>
             <FormLabel textAlign={"center"} mb={4} color={"gray.700"} fontSize={28} fontStyle={'bold'}>
-              Your review
+              Your testimonial
             </FormLabel>
             <Textarea
               bg="white"

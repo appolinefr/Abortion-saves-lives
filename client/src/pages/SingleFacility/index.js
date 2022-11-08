@@ -3,14 +3,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
-import {
-  Center,
-  Box,
-  Stack,
-  Text,
-  Container,
-  Heading,
-} from "@chakra-ui/react";
+import { Center, Box, Stack, Text, Container, Heading } from "@chakra-ui/react";
 
 import ReviewList from "../../components/ReviewList";
 import ReviewForm from "../../components/ReviewForm";
@@ -45,12 +38,7 @@ const SingleFacility = () => {
           <Text>{facility.phone}</Text>
         </Stack>
       </Container>
-      <Container
-        maxW={"6xl"}
-        mt={10}
-        columns={{ base: 1, md: 2, lg: 3 }}
-        spacing={10}
-      >
+      <Container maxW={"6xl"} columns={{ base: 1, md: 2, lg: 3 }} spacing={10}>
         <ReviewList reviews={facility.reviews} />
       </Container>
       <Container>
