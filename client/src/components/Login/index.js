@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
@@ -33,8 +32,9 @@ export default function LoginModal(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error }] = useMutation(LOGIN_USER);
+  const [login, { error, data }] = useMutation(LOGIN_USER);
 
+  // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -46,7 +46,6 @@ export default function LoginModal(props) {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
       const { data } = await login({
         variables: { ...formState },
@@ -85,12 +84,13 @@ export default function LoginModal(props) {
           <ModalHeader my={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl isRequired mt={4} onSubmit={handleFormSubmit}>
+            <FormControl isRequired mt={4}>
               <FormLabel>Email</FormLabel>
               <InputGroup mt={4}>
                 <InputLeftElement children={<MdOutlineEmail />} />
                 <Input
                   type="email"
+                  name="email"
                   placeholder="Email"
                   size="md"
                   focusBorderColor="#FF5677"
@@ -101,6 +101,7 @@ export default function LoginModal(props) {
               <FormLabel mt={4}>Password</FormLabel>
               <Input
                 mt={4}
+                name="password"
                 type="password"
                 placeholder="Password"
                 size="md"
@@ -110,6 +111,7 @@ export default function LoginModal(props) {
               />
               <Button
                 type={"submit"}
+                onClick={handleFormSubmit}
                 mb={4}
                 mt={4}
                 fontSize={"md"}
@@ -124,7 +126,7 @@ export default function LoginModal(props) {
                 Login
               </Button>
             </FormControl>
-            {error && <Text>{error.message}</Text>}
+            {error && <Text my={4} color={"red"}>{error.message}</Text>}
             <Text
               color={"gray.600"}
               as={"a"}

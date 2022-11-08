@@ -20,7 +20,7 @@ const resolvers = {
       return Facility.find();
     },
     facility: async (parent, { facilityId }) => {
-      return Facility.findOne({ facilityId }).populate("reviews");
+      return Facility.findOne({ _id: facilityId }).populate("reviews");
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -54,7 +54,13 @@ const resolvers = {
     },
 
     addComment: async (parent, { commentBody }) => {
-      const comment = await Comment.create({ commentBody });
+      const comment = await Comment.create(
+        { commentBody },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
 
       // await User.findOneAndUpdate(
       //   { username: commentAuthor },
@@ -86,7 +92,46 @@ const resolvers = {
         { new: true }
       );
     },
+
+    removeUser: async (parent, { userId }) => {
+      return User.findOneAndDelete({ _id: userId });
+    },
   },
 };
 
 module.exports = resolvers;
+
+    // removeComment: async (parent, { commentId }, context) => {
+    //   if (context.user) {
+    //     const comment = await Comment.findOneAndDelete({
+    //       _id: commentId,
+    //      commentAuthor: context.user.username,
+    //     });
+
+    //     await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { comments: comment._id } }
+    //     );
+
+    //     return comment;
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
+  
+    // removeReview: async (parent, { faciltyId, reviewId }, context) => {
+    //   if (context.user) {
+    //     return Facility.findOneAndUpdate(
+    //       { _id: facilityId },
+    //       {
+    //         $pull: {
+    //           reviews: {
+    //             _id: reviewId,
+    //             reviewAuthor: context.user.username,
+    //           },
+    //         },
+    //       },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },

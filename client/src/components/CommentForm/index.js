@@ -52,7 +52,7 @@ const CommentForm = () => {
   };
 
   return (
-    <Center mt={10}>
+    <Center my={10}>
       <Box
         boxShadow={"lg"}
         maxW={"400px"}
@@ -93,7 +93,7 @@ const CommentForm = () => {
         </Text>
         <VStack spacing={5}>
           <FormControl>
-            <FormLabel textAlign={"center"} mb={4}>
+            <FormLabel textAlign={"center"} mb={4} color={"gray.700"} fontSize={28} fontStyle={'bold'}>
               Share your story{" "}
             </FormLabel>
             <Textarea
@@ -102,7 +102,8 @@ const CommentForm = () => {
               value={commentBody}
               onChange={handleChange}
               rows={6}
-              focusBorderColor="#FF5677"
+              borderColor="gray.400"
+              focusBorderColor="#9F79EA"
               resize={"none"}
             />
           </FormControl>

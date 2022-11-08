@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import {
   Modal,
@@ -14,7 +14,15 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Text
 } from "@chakra-ui/react";
+
+import {WarningTwoIcon} from "@chakra-ui/icons";
+
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
+
+import Auth from "../../utils/auth";
 
 import { BsPerson } from "react-icons/bs";
 import { MdOutlineEmail } from "react-icons/md";
@@ -25,6 +33,37 @@ const styles = {
 
 export default function SignupModal() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const [formState, setFormState] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log(formState);
+
+    try {
+      const { data } = await addUser({
+        variables: { ...formState },
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   return (
     <>
@@ -56,6 +95,9 @@ export default function SignupModal() {
                   type="text"
                   placeholder="
               Username"
+                  name="username"
+                  value={formState.name}
+                  onChange={handleChange}
                   size="md"
                   focusBorderColor="#FF5677"
                 />
@@ -68,6 +110,9 @@ export default function SignupModal() {
                 <Input
                   type="email"
                   placeholder="Email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
                   size="md"
                   focusBorderColor="#FF5677"
                 />
@@ -77,15 +122,24 @@ export default function SignupModal() {
               <FormLabel>Password</FormLabel>
               <Input
                 type="password"
+                name="password"
                 placeholder="Password"
+                value={formState.password}
+                onChange={handleChange}
                 size="md"
                 focusBorderColor="#FF5677"
               />
             </FormControl>
           </ModalBody>
+          {error && (
+            <Text my={4} color={"red"} textAlign="center">
+             < WarningTwoIcon/> {error.message}
+            </Text>
+          )}
           <ModalFooter>
             <Button
               mr={4}
+              onClick={handleFormSubmit}
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
@@ -95,7 +149,6 @@ export default function SignupModal() {
                 bg: "#A7D2CB",
               }}
             >
-              {" "}
               Sign up
             </Button>
             <Button

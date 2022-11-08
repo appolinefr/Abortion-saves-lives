@@ -55,6 +55,7 @@ const typeDefs = gql`
     addReview(facilityId: ID!, reviewText: String!): Facility
     removeComment(commentId: ID!): Comment
     removeReview(facilityId: ID!, reviewId: ID!): Facility
+    removeUser(userId: ID!): User
   }
 `;
 
