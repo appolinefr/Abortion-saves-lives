@@ -96,7 +96,7 @@ export default function MainPageBody() {
           }
           heading={"Where can I get an abortion"}
           text={
-            "How do I find an abortion clinic or hospital? This tool will help you find the relevant and nearest health service in South Australia."
+            "This tool will help you find a health service in South Australia that provides the type of abortion that suits your situation best as well as the cost for the procedure."
           }
           button={
             <Button
@@ -120,7 +120,7 @@ export default function MainPageBody() {
             <Icon as={FiShare2} w={10} h={10} color={styles.mainColor} mb={4} />
           }
           heading={"I want to share my experience"}
-          text={"Short text describing one of you features/service"}
+          text={"If you have had an abortion in SA, you can share your experience and write a testimonial to help other people decide where would be the best facility for them."}
           button={
             <Button
               my={6}
@@ -129,7 +129,7 @@ export default function MainPageBody() {
               fontWeight={600}
               color={"white"}
               bg={"#187498"}
-              href={"/share"}
+              href={"/facilities"}
               _hover={{
                 bg: styles.secGreenColor,
               }}

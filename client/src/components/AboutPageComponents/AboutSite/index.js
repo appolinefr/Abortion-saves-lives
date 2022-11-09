@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import AbortionMarch from "../../../images/abortionIsLegal.jpg";
+import AbortionIsHealthcare from "../../../images/abortionIsHealthcare.jpg";
 export default function AboutSite() {
   return (
     <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 12 }} pt={12}>
@@ -42,7 +42,7 @@ export default function AboutSite() {
         <Flex justifyContent={"center"}>
           <Image
             alt={"feature image"}
-            src={AbortionMarch}
+            src={AbortionIsHealthcare}
             objectFit={"cover"}
             width={607}
             aspect-ratio={607 / 404}

@@ -18,7 +18,7 @@ import About from "./pages/About";
 import Info from "./pages/Info";
 import Where from "./pages/Where";
 import SingleFacility from "./pages/SingleFacility";
-
+import Support from "./pages/Support";
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
@@ -58,6 +58,7 @@ function App() {
               path="/facilities/:facilityId"
               element={<SingleFacility />}
             />
+            <Route path="/support" element={<Support />} />
           </Routes>
           <Footer />
         </Router>

@@ -44,12 +44,13 @@ export default function MainPageHero() {
           >
             <SignupModal />
             <Button
+              as={"a"}
               width={160}
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
               bg={styles.mainColor}
-              href={"#"}
+              href={"/support"}
               _hover={{
                 bg: "#187498",
               }}

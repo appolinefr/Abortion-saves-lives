@@ -70,7 +70,7 @@ export default function LoginModal(props) {
         fontSize={"md"}
         fontWeight={600}
         color={"white"}
-        bg= {"#187498"}
+        bg={"#187498"}
         href={"#"}
         _hover={{
           bg: "#A7D2CB",
@@ -126,7 +126,11 @@ export default function LoginModal(props) {
                 Login
               </Button>
             </FormControl>
-            {error && <Text my={4} color={"red"}>{error.message}</Text>}
+            {error && (
+              <Text my={4} color={"red"}>
+                {error.message}
+              </Text>
+            )}
             <Text
               color={"gray.600"}
               as={"a"}

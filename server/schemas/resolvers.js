@@ -1,14 +1,14 @@
-const { User, Comment, Facility } = require("../models");
+const { User, Facility } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find().populate("comments");
+      return User.find();
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("comments");
+      return User.findOne({ username });
     },
     facilities: async () => {
       return Facility.find();
@@ -18,7 +18,7 @@ const resolvers = {
     },
     me: async (parent, args, context) => {
       if (context.user) {
-        return User.findOne({ _id: context.user._id }).populate("comments");
+        return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError("You need to be logged in!");
     },

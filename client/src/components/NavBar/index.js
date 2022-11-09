@@ -116,7 +116,7 @@ export default function NavBar() {
                 fontSize={"md"}
                 fontWeight={600}
                 color={"white"}
-                bg={styles.color}
+                bg={"#187498"}
                 href={"#"}
                 _hover={{
                   bg: "#A7D2CB",
