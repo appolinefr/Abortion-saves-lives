@@ -24,17 +24,6 @@ export const ADD_USER = gql`
   }
 `;
 
-export const ADD_COMMENT = gql`
-  mutation addComment($commentBody: String!) {
-    addComment(commentBody: $commentBody) {
-      _id
-      commentBody
-      commentAuthor
-      createdAt
-    }
-  }
-`;
-
 export const ADD_FACILITY = gql`
   mutation addFacility(
     $name: String!,

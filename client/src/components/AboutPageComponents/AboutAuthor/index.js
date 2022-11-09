@@ -7,7 +7,9 @@ import {
   Text,
   Stack,
 } from "@chakra-ui/react";
-import Appoline from "../../images/aboutPic.jpeg";
+
+import Appoline from "../../../images/aboutPic.jpeg";
+
 export default function AboutAuthor() {
   return (
     <Container maxW={"5xl"} pb={12} pt={{ base: 6, md: 8, lg: 12 }}>
@@ -29,7 +31,7 @@ export default function AboutAuthor() {
             color={"white"}
             fontWeight={600}
             fontSize={"sm"}
-            bg={"#A7D2CB"}
+            bg={"#187498"}
             p={2}
             alignSelf={"flex-start"}
             rounded={"md"}

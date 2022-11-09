@@ -98,6 +98,12 @@ export default function infoPageBody() {
         <Heading
           fontSize={"3xl"}
           lineHeight={"130%"}
+          color={"white"}
+          fontWeight={600}
+          bg={"#187498"}
+          p={2}
+          rounded={"md"}
+          alignSelf={"center"}
         >
           Abortion key information
         </Heading>

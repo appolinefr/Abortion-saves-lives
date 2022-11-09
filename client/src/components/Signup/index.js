@@ -76,7 +76,7 @@ export default function SignupModal() {
         bg={styles.color}
         href={"#"}
         _hover={{
-          bg: "#A7D2CB",
+          bg: "#187498",
         }}
       >
         Sign up

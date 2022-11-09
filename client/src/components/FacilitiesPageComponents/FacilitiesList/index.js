@@ -49,7 +49,7 @@ const FacilitiesList = ({ facilities }) => {
                 <Text
                   fontSize={"lg"}
                   fontWeight={500}
-                  bg={styles.secGreenColor}
+                  bg={"#187498"}
                   p={2}
                   px={3}
                   mb={4}

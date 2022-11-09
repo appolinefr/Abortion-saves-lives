@@ -55,27 +55,6 @@ export const QUERY_SINGLE_FACILITY = gql`
   }
 `;
 
-export const QUERY_COMMENTS = gql`
-  query getComments {
-    comments {
-      _id
-      commentAuthor
-      commentBody
-      createdAt
-    }
-  }
-`;
-
-export const QUERY_SINGLE_COMMENT = gql`
-  query getSingleComment($commentId: ID!) {
-    comment(commentId: $commentId) {
-      _id
-      commentAuthor
-      commentBody
-      createdAt
-    }
-  }
-`;
 
 export const QUERY_ME = gql`
   query me {

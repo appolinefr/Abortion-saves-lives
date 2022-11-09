@@ -2,8 +2,8 @@ import React from "react";
 import { useQuery } from "@apollo/client";
 import {Center} from "@chakra-ui/react";
 
-import FacilityPageHero from "../../components/FacilitiesPageHero";
-import FacilitiesList from "../../components/FacilitiesList";
+import FacilityPageHero from "../../components/FacilitiesPageComponents/FacilitiesPageHero";
+import FacilitiesList from "../../components/FacilitiesPageComponents/FacilitiesList";
 
 import { QUERY_FACILITIES} from "../../utils/queries";
 

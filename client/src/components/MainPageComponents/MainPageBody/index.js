@@ -81,7 +81,7 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.mainColor}
+              bg={"#187498"}
               _hover={{
                 bg: styles.secGreenColor,
               }}
@@ -105,7 +105,7 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.mainColor}
+              bg={"#187498"}
               href={`/facilities`}
               _hover={{
                 bg: styles.secGreenColor,
@@ -128,7 +128,7 @@ export default function MainPageBody() {
               fontSize={"md"}
               fontWeight={600}
               color={"white"}
-              bg={styles.mainColor}
+              bg={"#187498"}
               href={"/share"}
               _hover={{
                 bg: styles.secGreenColor,

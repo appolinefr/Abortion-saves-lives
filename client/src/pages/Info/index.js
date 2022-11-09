@@ -1,8 +1,8 @@
 import React from "react";
 
-import InfoPageHero from "../../components/InfoPageHero";
-import InfoPageBody from "../../components/InfoPageMainBody";
-import InfoLinks from "../../components/InfoLinks";
+import InfoPageHero from "../../components/InfoPageComponents/InfoPageHero";
+import InfoPageBody from "../../components/InfoPageComponents/InfoPageMainBody";
+import InfoLinks from "../../components/InfoPageComponents/InfoLinks";
 export default function Home() {
   return (
     <main>

@@ -9,10 +9,10 @@ import {
   FormLabel,
   Textarea,
   VStack,
-  Center
+  Center,
 } from "@chakra-ui/react";
 
-import { ADD_REVIEW } from "../../utils/mutations";
+import { ADD_REVIEW } from "../../../utils/mutations";
 
 // import Auth from '../../utils/auth';
 
@@ -47,7 +47,7 @@ const ReviewForm = ({ facilityId }) => {
   };
 
   return (
-        <Center my={10}>
+    <Center my={10}>
       <Box
         boxShadow={"lg"}
         maxW={"400px"}
@@ -88,7 +88,13 @@ const ReviewForm = ({ facilityId }) => {
         </Text>
         <VStack spacing={5}>
           <FormControl>
-            <FormLabel textAlign={"center"} mb={4} color={"gray.700"} fontSize={28} fontStyle={'bold'}>
+            <FormLabel
+              textAlign={"center"}
+              mb={4}
+              color={"gray.700"}
+              fontSize={28}
+              fontStyle={"bold"}
+            >
               Your testimonial
             </FormLabel>
             <Textarea
@@ -118,6 +124,5 @@ const ReviewForm = ({ facilityId }) => {
     </Center>
   );
 };
-     
-export default ReviewForm;
 
+export default ReviewForm;

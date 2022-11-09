@@ -1,7 +1,7 @@
 import React from "react";
 
-import MainPageHero from "../../components/MainPageHero";
-import MainPageBody from "../../components/MainPageBody";
+import MainPageHero from "../../components/MainPageComponents/MainPageHero";
+import MainPageBody from "../../components/MainPageComponents/MainPageBody";
 
 export default function Home() {
   return (

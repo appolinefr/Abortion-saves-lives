@@ -8,7 +8,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 
-import AbortionMarch from "../../images/abortionIsLegal.jpg";
+import AbortionMarch from "../../../images/abortionIsLegal.jpg";
 export default function AboutSite() {
   return (
     <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 12 }} pt={12}>
@@ -19,7 +19,7 @@ export default function AboutSite() {
             color={"white"}
             fontWeight={600}
             fontSize={"sm"}
-            bg={"#A7D2CB"}
+            bg={"#187498"}
             p={2}
             alignSelf={"flex-start"}
             rounded={"md"}

@@ -10,12 +10,6 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username }).populate("comments");
     },
-    comments: async () => {
-      return Comment.find().sort({ createdAt: -1 });
-    },
-    comment: async (parent, { commentId }) => {
-      return Comment.findOne({ _id: commentId });
-    },
     facilities: async () => {
       return Facility.find();
     },
@@ -53,25 +47,6 @@ const resolvers = {
       return { token, user };
     },
 
-    addComment: async (parent, { commentBody }, context) => {
-      if (context.user) {
-        const comment = await Comment.create(
-          { commentBody, commentAuthor: context.user.username },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { comments: comment._id } }
-        );
-
-        return comment;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
 
     addReview: async (parent, { facilityId, reviewText }, context) => {
       if (context.user) {
@@ -91,35 +66,20 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    removeComment: async (parent, { commentId }, context) => {
-      if (context.user) {
-        const comment = await Comment.findOneAndDelete({
-          _id: commentId,
-          commentAuthor: context.user.username,
-        });
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { comments: comment._id } }
-        );
 
-        return comment;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
-
-    removeReview: async (parent, { facilityId, reviewId }, context) => {
-      if (context.user) {
+    removeReview: async (parent, { facilityId, reviewId }) => {
+      // if (context.user) {
         return Facility.findOneAndUpdate(
           { _id: facilityId },
           {
             $pull: {
-              reviews: { _id: reviewId, reviewAuthor: context.user.username },
+              reviews: { _id: reviewId },
             },
           },
           { new: true }
         );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
 
     removeUser: async (parent, { userId }) => {

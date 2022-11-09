@@ -158,8 +158,8 @@ const NAV_ITEMS = [
     href: "info",
   },
   {
-    label: "Share",
-    href: "share",
+    label: "Support",
+    href: "support",
   },
   {
     label: "Contact",

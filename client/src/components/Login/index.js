@@ -70,7 +70,7 @@ export default function LoginModal(props) {
         fontSize={"md"}
         fontWeight={600}
         color={"white"}
-        bg={styles.color}
+        bg= {"#187498"}
         href={"#"}
         _hover={{
           bg: "#A7D2CB",
@@ -84,7 +84,7 @@ export default function LoginModal(props) {
           <ModalHeader my={4}>Log into your account</ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
-            <FormControl isRequired mt={4}>
+            <FormControl mt={4}>
               <FormLabel>Email</FormLabel>
               <InputGroup mt={4}>
                 <InputLeftElement children={<MdOutlineEmail />} />

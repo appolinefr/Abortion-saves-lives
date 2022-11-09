@@ -6,7 +6,7 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import SignupModal from "../Signup";
+import SignupModal from "../../Signup";
 
 const styles = {
   mainColor: "#FF5677",
@@ -51,7 +51,7 @@ export default function MainPageHero() {
               bg={styles.mainColor}
               href={"#"}
               _hover={{
-                bg: styles.secGreenColor,
+                bg: "#187498",
               }}
             >
               Support us
