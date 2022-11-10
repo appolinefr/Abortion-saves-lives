@@ -63,7 +63,7 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Tooltip>
 
-                <Link href="#">
+                <Link href="https://github.com/appolinefr" target="_blank">
                   <IconButton
                     aria-label="github"
                     variant="ghost"
@@ -79,7 +79,10 @@ export default function ContactFormWithSocialButtons() {
                   />
                 </Link>
 
-                <Link href="#">
+                <Link
+                  href="https://www.linkedin.com/in/appoline-cogan-91b777236/"
+                  target="_blank"
+                >
                   <IconButton
                     aria-label="linkedin"
                     variant="ghost"

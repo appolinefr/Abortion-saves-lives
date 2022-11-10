@@ -20,6 +20,7 @@ const SocialButton = ({ children, label, href }) => {
       cursor={"pointer"}
       as={"a"}
       href={href}
+      target="_blank"
       display={"inline-flex"}
       alignItems={"center"}
       justifyContent={"center"}
@@ -53,10 +54,19 @@ export default function Footer() {
       >
         <Text>© 2022 Abortion Saves Lives. All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
-          <SocialButton label={"Twitter"} href={"#"}>
+          <SocialButton
+            as="Link"
+            isExternal
+            label={"Linkedin"}
+            href={"https://www.linkedin.com/in/appoline-cogan-91b777236/"}
+          >
             <FaLinkedin />
           </SocialButton>
-          <SocialButton label={"YouTube"} href={"#"}>
+          <SocialButton
+            label={"GitHub"}
+            href={"https://github.com/appolinefr"}
+            target="_blank"
+          >
             <FaGithub />
           </SocialButton>
           <SocialButton label={"Instagram"} href={"#"}>

@@ -62,5 +62,13 @@
     "medicalAbortion": "No",
     "surgicalAbortion": "Yes",
     "cost": "free with Medicare card"
-  }
+  },
+    {
+      "name": "MSI Australia",
+      "address": "Teleabortion",
+      "phone": "1300 863 549",
+      "medicalAbortion": "Yes",
+      "surgicalAbortion": "No",
+      "cost": "from $401.10 (lowest Health Care Card price)"
+    }
 ]

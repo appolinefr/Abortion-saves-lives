@@ -16,7 +16,7 @@ export default function AboutAuthor() {
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
         <Flex justifyContent={"center"}>
           <Image
-            alt={"feature image"}
+            alt={"Appoline Cogan"}
             src={Appoline}
             objectFit={"cover"}
             width={607}

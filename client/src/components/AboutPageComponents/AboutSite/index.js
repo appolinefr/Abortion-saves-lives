@@ -41,7 +41,7 @@ export default function AboutSite() {
         </Stack>
         <Flex justifyContent={"center"}>
           <Image
-            alt={"feature image"}
+            alt={"Abortion is healthcare march"}
             src={AbortionIsHealthcare}
             objectFit={"cover"}
             width={607}

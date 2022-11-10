@@ -10,7 +10,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
-  ModalFooter,
   ModalBody,
   ModalCloseButton,
   Button,
@@ -71,7 +70,6 @@ export default function LoginModal(props) {
         fontWeight={600}
         color={"white"}
         bg={"#187498"}
-        href={"#"}
         _hover={{
           bg: "#A7D2CB",
         }}
@@ -118,7 +116,6 @@ export default function LoginModal(props) {
                 fontWeight={600}
                 color={"white"}
                 bg={styles.color}
-                href={"#"}
                 _hover={{
                   bg: "#A7D2CB",
                 }}
@@ -143,7 +140,6 @@ export default function LoginModal(props) {
               No account? Back to main page to sign up
             </Text>
           </ModalBody>
-          <ModalFooter></ModalFooter>
         </ModalContent>
       </Modal>
     </>
