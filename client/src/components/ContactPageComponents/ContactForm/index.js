@@ -1,8 +1,8 @@
 import {
   Box,
-  Button,
+  Alert,
+  AlertIcon,
   Flex,
-  FormControl,
   FormLabel,
   IconButton,
   Input,
@@ -16,12 +16,39 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import React from "react";
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 import { BsGithub, BsLinkedin, BsPerson } from "react-icons/bs";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
 
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard("appolinecogan@gmail.com");
+  const form = useRef();
+
+  const sendEmail = (event) => {
+    event.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_7hh9zgm",
+        "template_43qhnkr",
+        form.current,
+        "vy0_3laHotgJKbdM5"
+      )
+      .then(
+        (result) => {
+          <Alert status="success">
+            <AlertIcon />
+            Message sent!
+          </Alert>;
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    event.target.reset();
+  };
 
   return (
     <Flex align="center" justify="center" id="contact">
@@ -106,51 +133,48 @@ export default function ContactFormWithSocialButtons() {
                 w={{ base: "md", md: "lg", lg: "xl" }}
               >
                 <VStack spacing={5}>
-                  <FormControl isRequired>
+                  <form ref={form} onSubmit={sendEmail}>
                     <FormLabel>Name</FormLabel>
-                    <InputGroup>
+                    <InputGroup mb={2}>
                       <InputLeftElement children={<BsPerson />} />
                       <Input
-                        name="name"
+                        name="user_name"
                         placeholder="Your Name"
                         size="md"
+                        type="name"
                         focusBorderColor="#FF5677"
-                        // value={input}
-                        // onChange={handleInputChange}
                       />
                     </InputGroup>
-                  </FormControl>
-                  <FormControl isRequired>
                     <FormLabel>Email</FormLabel>
-                    <InputGroup>
+                    <InputGroup my={2}>
                       <InputLeftElement children={<MdOutlineEmail />} />
                       <Input
                         type="email"
-                        name="email"
                         placeholder="Your Email"
+                        name="user_email"
                         size="md"
                         focusBorderColor="#FF5677"
                       />
                     </InputGroup>
-                  </FormControl>
-                  <FormControl isRequired>
                     <FormLabel>Message</FormLabel>
                     <Textarea
-                      name="message"
+                      type="email"
                       placeholder="Your Message"
+                      name="user_message"
                       rows={6}
                       focusBorderColor="#FF5677"
                     />
-                  </FormControl>
-                  <Button
-                    bg="#FF5677"
-                    color="white"
-                    _hover={{
-                      bg: "#A7D2CB",
-                    }}
-                  >
-                    Send Message
-                  </Button>
+
+                    <Input
+                      my={2}
+                      type={"submit"}
+                      bg="#FF5677"
+                      color="white"
+                      _hover={{
+                        bg: "#A7D2CB",
+                      }}
+                    />
+                  </form>
                 </VStack>
               </Box>
             </Stack>

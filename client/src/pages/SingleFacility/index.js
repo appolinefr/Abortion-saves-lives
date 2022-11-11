@@ -37,18 +37,16 @@ const SingleFacility = () => {
             >
               Share your&nbsp;
               <Text as="span" color={"#FF5677"}>
-                abortion&nbsp; a
+                abortion&nbsp;
               </Text>
+              at
             </Heading>
             <Heading
               fontWeight={300}
               fontSize={{ base: "3xl", sm: "3xl", md: "4xl" }}
               lineHeight={"130%"}
-            >
-             
-            </Heading>
-            <Text>{facility.address}</Text>
-            <Text>{facility.phone}</Text>
+            ></Heading>
+            <Text fontSize={"2xl"}>{facility.name} </Text>
           </Stack>
         </Container>
         <Container>
@@ -69,11 +67,11 @@ const SingleFacility = () => {
                 lineHeight={"130%"}
                 my={20}
                 textAlign={"center"}
-                color={"#FF5677"}
+                // color={"#FF5677"}
               >
-                <WarningTwoIcon />
+                <WarningTwoIcon color={"#FF5677"} />
                 You need to be logged in to see the testimonials
-                <WarningTwoIcon />
+                <WarningTwoIcon color={"#FF5677"} />
               </Heading>
             </Stack>
           </Box>

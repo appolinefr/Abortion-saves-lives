@@ -16,7 +16,7 @@ import AbortionMarch from "../../../images/abortionIsLegal.jpg";
 export default function BasicStatistics() {
   return (
     <>
-      <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 12 }} pt={12}>
+      <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 8 }} pt={12}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Stack spacing={4} justifyContent={"center"}>
             <Text
@@ -28,7 +28,9 @@ export default function BasicStatistics() {
               alignSelf={"flex-start"}
               rounded={"md"}
               size={"lg"}
-            >Protect human rights</Text>
+            >
+              Protect human rights
+            </Text>
             <Heading size={"lg"}>Help us keep abortion safe</Heading>
             <Text color={"gray.500"} fontSize={"lg"}>
               Find out where your lawmakers stand on abortion rights. Do you
@@ -50,7 +52,7 @@ export default function BasicStatistics() {
           </Flex>
         </SimpleGrid>
       </Container>
-      <Container maxW={"5xl"} pb={12} pt={{ base: 6, md: 8, lg: 12 }}>
+      <Container maxW={"5xl"} pb={4} pt={{ base: 6, md: 8, lg: 12 }}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
           <Flex justifyContent={"center"}>
             <Stack
@@ -65,10 +67,13 @@ export default function BasicStatistics() {
                 shadow="base"
                 borderWidth="1px"
                 alignSelf={{ base: "center", lg: "flex-start" }}
-                width={507}
-                aspect-ratio={507 / 304}
+                width={407}
+                aspect-ratio={407 / 304}
+                objectFit={"cover"}
                 height={304}
                 borderRadius={"md"}
+                bg={"gray.50"}
+                borderColor={"#187498"}
               >
                 <VStack py={10} borderBottomRadius={"xl"} spacing={10} my={6}>
                   <Heading fontWeight="500" fontSize="3xl">

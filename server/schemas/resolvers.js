@@ -2,6 +2,7 @@ const { User, Facility } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -23,6 +24,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
   },
+
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -47,7 +49,6 @@ const resolvers = {
       return { token, user };
     },
 
-
     addReview: async (parent, { facilityId, reviewText }, context) => {
       if (context.user) {
         return Facility.findOneAndUpdate(
@@ -66,18 +67,17 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-
     removeReview: async (parent, { facilityId, reviewId }) => {
       // if (context.user) {
-        return Facility.findOneAndUpdate(
-          { _id: facilityId },
-          {
-            $pull: {
-              reviews: { _id: reviewId },
-            },
+      return Facility.findOneAndUpdate(
+        { _id: facilityId },
+        {
+          $pull: {
+            reviews: { _id: reviewId },
           },
-          { new: true }
-        );
+        },
+        { new: true }
+      );
       // }
       // throw new AuthenticationError("You need to be logged in!");
     },
@@ -86,7 +86,7 @@ const resolvers = {
       return User.findOneAndDelete({ _id: userId });
     },
   },
-}
+};
 
 
 module.exports = resolvers;

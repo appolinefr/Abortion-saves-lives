@@ -1,6 +1,8 @@
 const {gql} = require('apollo-server-express');
 
 const typeDefs = gql`
+  directive @isAdmin on FIELD_DEFINITION
+
   type User {
     _id: ID
     username: String
@@ -8,7 +10,9 @@ const typeDefs = gql`
     password: String
   }
 
-
+  type Checkout {
+    session: ID
+  }
 
   type Review {
     _id: ID
@@ -34,11 +38,12 @@ const typeDefs = gql`
   }
 
   type Query {
-    users: [User]
+    users: [User]! @isAdmin
     user(username: String!): User
     facilities: [Facility]
     facility(facilityId: ID!): Facility
     me: User
+    checkout: Checkout
   }
 
   type Mutation {
