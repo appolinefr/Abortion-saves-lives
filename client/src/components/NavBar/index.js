@@ -69,8 +69,7 @@ export default function NavBar() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
+            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={300}
             mr={1}
           >
@@ -80,7 +79,7 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={styles.color}
-            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
+            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={500}
             mr={1}
           >
@@ -90,7 +89,7 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            fontSize={{ sm: "lg", md: "xl", lg: "2xl" }}
+            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={300}
           >
             Lives
@@ -113,11 +112,10 @@ export default function NavBar() {
               <Button
                 onClick={logout}
                 as={"a"}
-                fontSize={"md"}
+                fontSize={{base: "sm", sm: "sm" ,md: "lg", lg: "lg"}}
                 fontWeight={600}
                 color={"white"}
                 bg={"#187498"}
-                href={"#"}
                 _hover={{
                   bg: "#A7D2CB",
                 }}

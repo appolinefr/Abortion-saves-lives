@@ -67,8 +67,8 @@ export default function BasicStatistics() {
                 shadow="base"
                 borderWidth="1px"
                 alignSelf={{ base: "center", lg: "flex-start" }}
-                width={407}
-                aspect-ratio={407 / 304}
+                width={400}
+                // aspect-ratio={400 / 304}
                 objectFit={"cover"}
                 height={304}
                 borderRadius={"md"}

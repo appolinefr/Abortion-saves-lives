@@ -35,7 +35,7 @@ const Feature = ({ heading, text, icon, button }) => {
 
 export default function MainPageBody() {
   return (
-    <Box as={Container} maxW="7xl" mt={14} p={4}>
+    <Box as={Container} maxW="7xl" mt={{sm: 8, md: 10, lg:14}} p={4}>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -56,7 +56,7 @@ export default function MainPageBody() {
           </VStack>
         </GridItem>
       </Grid>
-      <Divider mt={12} mb={12} />
+      <Divider mt={10} mb={10} />
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",

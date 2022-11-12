@@ -86,14 +86,14 @@ const surgicalFeatures = [
 
 export default function infoPageBody() {
   return (
-    <Box p={4} mt={{ sm: 6, md: 8, lg: 10 }}>
+    <Box p={4} mt={{ base: 6, sm: 6, md: 8, lg: 10 }}>
       <Stack
         Stack
         spacing={4}
         as={Container}
         maxW={"3xl"}
         textAlign={"center"}
-        mb={{ sm: 12, md: 16, lg: 16 }}
+        mb={{ base: 10, sm: 12, md: 16, lg: 16 }}
       >
         <Heading
           fontSize={"3xl"}
@@ -112,7 +112,11 @@ export default function infoPageBody() {
           abortion and surgical abortion. Both methods are safe and effective.
         </Text>
       </Stack>
-      <Tabs isFitted variant="soft-rounded" colorScheme="gray">
+      <Tabs
+        isFitted
+        variant="soft-rounded"
+        colorScheme="gray"
+      >
         <TabList mb="1em">
           <Tab fontSize={"xl"} color={"#FF5677"}>
             Medical Abortion
