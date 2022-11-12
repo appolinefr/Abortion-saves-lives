@@ -67,8 +67,8 @@ export const ADD_REVIEW = gql`
   }
 `;
 
-// export const REMOVE_REVIEW = gql`
-//   mutation removeReview($facilityId: ID!, $reviewId: ID!) {
-//     removeReview(facilityId: $facilityId, reviewId: $reviewId) {
-//   }
-// `;
+export const REMOVE_REVIEW = gql`
+  mutation removeReview($facilityId: ID!, $reviewId: ID!) {
+    removeReview(facilityId: $facilityId, reviewId: $reviewId)
+  }
+`;

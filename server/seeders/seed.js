@@ -1,6 +1,6 @@
 const db = require("../config/connection");
-const { Facility } = require("../models");
-// const userSeeds = require("./userSeeds.json");
+const { Facility, User } = require("../models");
+const userSeeds = require("./userSeeds.json");
 const facilitySeeds = require("./facilitySeeds.json");
 
 db.once("open", async () => {
@@ -12,6 +12,13 @@ db.once("open", async () => {
     process.exit(1);
   }
 
+    try {
+      await User.deleteMany({});
+      await User.create(userSeeds);
+    } catch (err) {
+      console.error(err);
+      process.exit(1);
+    }
   console.log("all done!");
   console.log(facilitySeeds)
   process.exit(0);
