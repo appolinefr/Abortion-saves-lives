@@ -12,8 +12,9 @@ import {
 } from "@chakra-ui/react";
 import { BsFillHeartFill } from "react-icons/bs";
 import AbortionMarch from "../../../images/abortionIsLegal.jpg";
+// import {loadStripe} from "@stripe/stripe-js";
 
-export default function BasicStatistics() {
+export default function SupportMainBody() {
   return (
     <>
       <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 8 }} pt={12}>
@@ -54,32 +55,29 @@ export default function BasicStatistics() {
       </Container>
       <Container maxW={"5xl"} pb={4} pt={{ base: 6, md: 8, lg: 12 }}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-          <Flex justifyContent={"center"}>
-            <Stack
-              direction={{ base: "column", md: "row" }}
-              textAlign="center"
-              justify="center"
-              spacing={{ base: 4, lg: 10 }}
-              py={10}
+          <Stack
+            direction={{ base: "column", md: "row" }}
+            textAlign="center"
+            justify="center"
+            spacing={{ base: 4, lg: 10 }}
+            py={10}
+          >
+            <Box
+              mb={4}
+              shadow="base"
+              borderWidth="1px"
+              alignSelf={{ base: "center", lg: "flex-start" }}
+              borderRadius={"md"}
+              bg={"gray.50"}
+              borderColor={"#187498"}
+              pr={28}
+              pl={28}
             >
-              <Box
-                mb={4}
-                shadow="base"
-                borderWidth="1px"
-                alignSelf={{ base: "center", lg: "flex-start" }}
-                width={400}
-                // aspect-ratio={400 / 304}
-                objectFit={"cover"}
-                height={304}
-                borderRadius={"md"}
-                bg={"gray.50"}
-                borderColor={"#187498"}
-              >
-                <VStack py={10} borderBottomRadius={"xl"} spacing={10} my={6}>
-                  <Heading fontWeight="500" fontSize="3xl">
-                    Make a donation
-                  </Heading>
-                  <BsFillHeartFill color="#FF5677" size={"30px"} />
+              <VStack py={10} borderBottomRadius={"xl"} spacing={10} my={6}>
+                <Heading fontWeight="500" fontSize="3xl">
+                  Make a donation
+                </Heading>
+                <BsFillHeartFill color="#FF5677" size={"30px"} />
                   <Button
                     bg="#187498"
                     variant="outline"
@@ -89,13 +87,14 @@ export default function BasicStatistics() {
                       bg: "white",
                       borderColor: "#187498",
                     }}
+                    type="submit"
                   >
                     Donate
                   </Button>
-                </VStack>
-              </Box>
-            </Stack>
-          </Flex>
+              </VStack>
+            </Box>
+          </Stack>
+
           <Stack spacing={4} justifyContent={"center"}>
             <Text
               textTransform={"uppercase"}

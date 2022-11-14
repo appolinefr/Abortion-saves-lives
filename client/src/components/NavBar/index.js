@@ -145,23 +145,23 @@ const NAV_ITEMS = [
   },
   {
     label: "About",
-    href: "about",
+    href: "/about",
   },
   {
     label: "Where",
-    href: "facilities",
+    href: "/facilities",
   },
   {
     label: "Info",
-    href: "info",
+    href: "/info",
   },
   {
     label: "Support",
-    href: "support",
+    href: "/support",
   },
   {
     label: "Contact",
-    href: "contact",
+    href: "/contact",
   },
 ];
 
