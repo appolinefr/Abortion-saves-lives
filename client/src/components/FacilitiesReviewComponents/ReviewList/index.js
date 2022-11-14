@@ -9,14 +9,8 @@ import {
   Heading,
 } from "@chakra-ui/react";
 
-// const styles = {
-//   mainColor: "#FF5677",
-//   secGreenColor: "#A7D2CB",
-//   grey: "gray.100",
-// };
-
-const ReviewList = ({ reviews }) => {
-  if (!reviews.lenght) {
+const ReviewList = ({reviews} ) => {
+  if (reviews.length === 0) {
     return (
       <Heading textAlign={"center"} fontWeight={300} my={10} color={"#FF5677"}>
         No testimonials yet
@@ -72,7 +66,6 @@ const ReviewList = ({ reviews }) => {
                 justifyContent={"space-between"}
               >
                 <chakra.p
-                  // fontFamily={"Inter"}
                   fontWeight={"medium"}
                   fontSize={"15px"}
                   pb={4}
@@ -80,13 +73,11 @@ const ReviewList = ({ reviews }) => {
                   {review.reviewText}
                 </chakra.p>
                 <chakra.p
-                  // fontFamily={"Work Sans"}
                   fontWeight={"bold"}
                   fontSize={14}
                 >
                   {review.reviewAuthor}&nbsp;
                   <chakra.span
-                    // fontFamily={"Inter"}
                     fontWeight={"medium"}
                     color={"gray.500"}
                   >

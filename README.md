@@ -11,7 +11,6 @@
 
 ## Description of Project
 
-This project is a single-page application portfolio using React.
 
 ## Project Requirements
 
@@ -26,9 +25,9 @@ Here are the main requirements of the project:
 
 ### Link to deployed application
 
-[Link to deployed application]()
+[Link to deployed application](https://pure-brook-41045.herokuapp.com/)
 
 ### Screenshot of deployed application
 
-![Screenshot of application](./src/images/deployed-app.png)
+![Screenshot of application](./images/deployed-app.png)
 

@@ -71,7 +71,7 @@ export default function MainPageBody() {
           }
           heading={"Get information about abortion"}
           text={
-            "Abortion is a safe and legal way to end a pregnancy. This will help you understand your abortion optionsand navigate the best care pathway."
+            "Abortion is a safe and legal way to end a pregnancy. This will help you understand your abortion options and navigate the best care pathway."
           }
           button={
             <Button

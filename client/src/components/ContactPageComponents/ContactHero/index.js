@@ -11,7 +11,7 @@ const styles = {
   color: "#FF5677",
 };
 
-export default function AboutHero() {
+export default function ContactHero() {
   return (
     <>
       <Container

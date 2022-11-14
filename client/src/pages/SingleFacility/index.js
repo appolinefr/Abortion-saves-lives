@@ -67,7 +67,6 @@ const SingleFacility = () => {
                 lineHeight={"130%"}
                 my={20}
                 textAlign={"center"}
-                // color={"#FF5677"}
               >
                 <WarningTwoIcon color={"#FF5677"} />
                 You need to be logged in to see the testimonials

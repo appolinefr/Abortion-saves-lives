@@ -11,7 +11,7 @@ const styles = {
   color: "#FF5677",
 };
 
-export default function FacilityPageHero() {
+export default function FacilitiesPageHero() {
   return (
     <>
       <Container
