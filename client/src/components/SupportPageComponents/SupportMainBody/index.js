@@ -4,7 +4,6 @@ import {
   Text,
   VStack,
   Stack,
-  Button,
   Container,
   SimpleGrid,
   Flex,
@@ -12,7 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { BsFillHeartFill } from "react-icons/bs";
 import AbortionMarch from "../../../images/abortionIsLegal.jpg";
-// import {loadStripe} from "@stripe/stripe-js";
+
+import DonateModal from "../SupportModal";
 
 export default function SupportMainBody() {
   return (
@@ -78,23 +78,10 @@ export default function SupportMainBody() {
                   Make a donation
                 </Heading>
                 <BsFillHeartFill color="#FF5677" size={"30px"} />
-                  <Button
-                    bg="#187498"
-                    variant="outline"
-                    color={"white"}
-                    _hover={{
-                      color: "#187498",
-                      bg: "white",
-                      borderColor: "#187498",
-                    }}
-                    type="submit"
-                  >
-                    Donate
-                  </Button>
+                <DonateModal />
               </VStack>
             </Box>
           </Stack>
-
           <Stack spacing={4} justifyContent={"center"}>
             <Text
               textTransform={"uppercase"}

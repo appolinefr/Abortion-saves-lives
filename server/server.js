@@ -1,5 +1,5 @@
 const express = require("express");
-const stripe = require("stripe")("sk_test_wsFx86XDJWwmE4dMskBgJYrt");
+
 const { ApolloServer } = require("apollo-server-express");
 const path = require("path");
 const { authMiddleware } = require("./utils/auth");
