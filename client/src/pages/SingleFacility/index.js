@@ -76,7 +76,7 @@ const SingleFacility = () => {
             rounded={"xl"}
             p={10}
             bg={"gray.50"}
-            my={10}
+            my={{sm: 12, md: 20, lg:24, xl: 28}}
           >
             <Stack>
               <Heading
