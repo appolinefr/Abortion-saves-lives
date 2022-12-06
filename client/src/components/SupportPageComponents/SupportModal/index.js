@@ -19,13 +19,14 @@ export default function DonateModal() {
   return (
     <>
       <Button
-        bg="#187498"
+        bg="#FF5677"
         variant="outline"
         color={"white"}
+        maxWidth={160}
         _hover={{
-          color: "#187498",
+          color: "#FF5677",
           bg: "white",
-          borderColor: "#187498",
+          borderColor: "#FF5677",
         }}
         onClick={onOpen}
       >

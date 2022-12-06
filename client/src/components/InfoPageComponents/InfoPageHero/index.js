@@ -7,10 +7,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-// const styles = {
-//   color: "#FF5677",
-// };
-
 export default function InfoPageHero() {
   return (
     <>

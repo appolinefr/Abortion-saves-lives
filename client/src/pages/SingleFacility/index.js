@@ -19,15 +19,15 @@ import {
   ModalFooter,
   Image,
 } from "@chakra-ui/react";
-import { WarningTwoIcon } from "@chakra-ui/icons";
+
+import { ThreeDots } from "react-loader-spinner";
+
 import ReviewList from "../../components/FacilitiesReviewComponents/ReviewList";
 import ReviewForm from "../../components/FacilitiesReviewComponents/ReviewForm";
-
+import Auth from "../../utils/auth";
 import myBody from "../../images/myBody.jpg";
 
 import { QUERY_SINGLE_FACILITY } from "../../utils/queries";
-
-import Auth from "../../utils/auth";
 
 const SingleFacility = () => {
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true });
@@ -40,17 +40,28 @@ const SingleFacility = () => {
   const facility = data?.facility || {};
 
   if (loading) {
-    return <Center fontSize={"2xl"}>Loading...</Center>;
+    return (
+      <Center>
+        <ThreeDots
+          height="80"
+          width="80"
+          radius="9"
+          color={"#FF5677"}
+          ariaLabel="three-dots-loading"
+          visible={true}
+        />
+      </Center>
+    );
   }
 
   if (!Auth.loggedIn()) {
     return (
       <>
-        <Container maxW={"10xl"} bg={"gray.50"} color={"gray.700"} mb={"6"}>
+        <Container maxW={"full"} bg={"gray.50"} color={"gray.700"}>
           <Stack as={Box} textAlign={"center"} py={{ base: 14, md: 20 }}>
             <Heading
               fontWeight={300}
-              fontSize={{ base: "2xl", sm: "2xl", md: "4xl" }}
+              fontSize={{ sm: "2xl", md: "3xl", lg: "4xl" }}
               lineHeight={"130%"}
             >
               Share your&nbsp;
@@ -61,37 +72,34 @@ const SingleFacility = () => {
             </Heading>
             <Heading
               fontWeight={300}
-              fontSize={{ base: "3xl", sm: "3xl", md: "4xl" }}
+              fontSize={{ sm: "xl", md: "2xl", lg: "3xl" }}
               lineHeight={"130%"}
-            ></Heading>
-            <Text fontSize={"2xl"}>{facility.name} </Text>
+            >
+              {facility.name}
+            </Heading>
           </Stack>
         </Container>
-        <Container>
-          <Box
-            boxShadow={"lg"}
-            maxW={"800px"}
-            direction={"column"}
-            width={"full"}
-            rounded={"xl"}
-            p={10}
-            bg={"gray.50"}
-            my={{sm: 12, md: 20, lg:24, xl: 28}}
+        <Container
+          as={Box}
+          boxShadow={"lg"}
+          maxW={"800px"}
+          direction={"column"}
+          width={"full"}
+          rounded={"xl"}
+          p={10}
+          bg={"#177498"}
+          my={{ sm: 12, md: 20, lg: 24, xl: 28 }}
+        >
+          <Heading
+            fontWeight={300}
+            fontSize={{ sm: "2xl", md: "3xl", lg: "4xl" }}
+            lineHeight={"130%"}
+            my={20}
+            textAlign={"center"}
+            color={"white"}
           >
-            <Stack>
-              <Heading
-                fontWeight={300}
-                fontSize={{ base: "3xl", sm: "3xl", md: "4xl" }}
-                lineHeight={"130%"}
-                my={20}
-                textAlign={"center"}
-              >
-                <WarningTwoIcon color={"#FF5677"} />
-                You need to be logged in to see the testimonials
-                <WarningTwoIcon color={"#FF5677"} />
-              </Heading>
-            </Stack>
-          </Box>
+            You need to be logged in to see the testimonials
+          </Heading>
         </Container>
       </>
     );
@@ -110,23 +118,32 @@ const SingleFacility = () => {
               While posting testimonials on this page, please be respectful.
               <br /> Any instances of sexism, racism, homophobia or transphobia
               will not be tolerated on Abortion saves lives.
-              <Text mt={4} fontWeight={600}>Comments attacking bodily autonomy will be removed.</Text>
+              <Text mt={4} fontWeight={600}>
+                Comments attacking bodily autonomy will be removed.
+              </Text>
             </ModalBody>
             <ModalFooter bg="white">Thank you</ModalFooter>
           </ModalContent>
         </Modal>
-        <Container maxW={"10xl"} bg={"gray.50"} color={"gray.700"} mb={"6"}>
+        <Container maxW={"full"} bg={"gray.50"} color={"gray.700"}>
           <Stack as={Box} textAlign={"center"} py={{ base: 14, md: 20 }}>
             <Heading
               fontWeight={300}
-              fontSize={{ base: "2xl", sm: "2xl", md: "4xl" }}
+              fontSize={{ sm: "2xl", md: "3xl", lg: "4xl" }}
               lineHeight={"130%"}
             >
               Share your&nbsp;
               <Text as="span" color={"#FF5677"}>
                 abortion&nbsp;
               </Text>
-              at {facility.name}
+              at
+            </Heading>
+            <Heading
+              fontWeight={300}
+              fontSize={{ sm: "xl", md: "2xl", lg: "3xl" }}
+              lineHeight={"130%"}
+            >
+              {facility.name}
             </Heading>
           </Stack>
         </Container>

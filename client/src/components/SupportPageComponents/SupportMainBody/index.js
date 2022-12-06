@@ -1,16 +1,15 @@
 import {
-  Box,
   Heading,
   Text,
-  VStack,
   Stack,
   Container,
   SimpleGrid,
   Flex,
   Image,
 } from "@chakra-ui/react";
-import { BsFillHeartFill } from "react-icons/bs";
+
 import AbortionMarch from "../../../images/abortionIsLegal.jpg";
+import Donate from "../../../images/donate.jpg";
 
 import DonateModal from "../SupportModal";
 
@@ -55,33 +54,17 @@ export default function SupportMainBody() {
       </Container>
       <Container maxW={"5xl"} pb={4} pt={{ base: 6, md: 8, lg: 12 }}>
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
-          <Stack
-            direction={{ base: "column", md: "row" }}
-            textAlign="center"
-            justify="center"
-            spacing={{ base: 4, lg: 10 }}
-            py={10}
-          >
-            <Box
-              mb={4}
-              shadow="base"
-              borderWidth="1px"
-              alignSelf={{ base: "center", lg: "flex-start" }}
+          <Flex justifyContent={"center"}>
+            <Image
+              alt={"Protect abortion march"}
+              src={Donate}
+              objectFit={"cover"}
+              width={607}
+              aspect-ratio={607 / 404}
+              height={404}
               borderRadius={"md"}
-              bg={"gray.50"}
-              borderColor={"#187498"}
-              pr={28}
-              pl={28}
-            >
-              <VStack py={10} borderBottomRadius={"xl"} spacing={10} my={6}>
-                <Heading fontWeight="500" fontSize="3xl">
-                  Make a donation
-                </Heading>
-                <BsFillHeartFill color="#FF5677" size={"30px"} />
-                <DonateModal />
-              </VStack>
-            </Box>
-          </Stack>
+            />
+          </Flex>
           <Stack spacing={4} justifyContent={"center"}>
             <Text
               textTransform={"uppercase"}
@@ -104,6 +87,7 @@ export default function SupportMainBody() {
               need your donations to support them with costs to cover travel,
               accommodation and time off work.
             </Text>
+            <DonateModal/>
           </Stack>
         </SimpleGrid>
       </Container>

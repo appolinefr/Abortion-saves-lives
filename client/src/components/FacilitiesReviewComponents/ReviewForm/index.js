@@ -18,7 +18,6 @@ import Auth from "../../../utils/auth";
 
 const ReviewForm = ({ facilityId }) => {
   const [reviewText, setReviewText] = useState();
-
   const [addReview, { error }] = useMutation(ADD_REVIEW);
 
   const handleFormSubmit = async (event) => {

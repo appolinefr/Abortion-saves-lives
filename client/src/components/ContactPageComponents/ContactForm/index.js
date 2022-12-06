@@ -1,7 +1,7 @@
+import { useRef, useState } from "react";
+
 import {
   Box,
-  Alert,
-  AlertIcon,
   Flex,
   FormLabel,
   IconButton,
@@ -16,7 +16,7 @@ import {
   useColorModeValue,
   VStack,
 } from "@chakra-ui/react";
-import { useRef } from "react";
+
 import emailjs from "@emailjs/browser";
 
 import { BsGithub, BsLinkedin, BsPerson } from "react-icons/bs";
@@ -25,6 +25,7 @@ import { MdEmail, MdOutlineEmail } from "react-icons/md";
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard("appolinecogan@gmail.com");
   const form = useRef();
+  const [button, setButton] = useState("Send");
 
   const sendEmail = (event) => {
     event.preventDefault();
@@ -36,17 +37,9 @@ export default function ContactFormWithSocialButtons() {
         form.current,
         "vy0_3laHotgJKbdM5"
       )
-      .then(
-        (result) => {
-          <Alert status="success">
-            <AlertIcon />
-            Message sent!
-          </Alert>;
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .then(setButton("Message sent!"), (error) => {
+        console.log(error.text);
+      });
     event.target.reset();
   };
 
@@ -89,7 +82,6 @@ export default function ContactFormWithSocialButtons() {
                     isRound
                   />
                 </Tooltip>
-
                 <Link href="https://github.com/appolinefr" target="_blank">
                   <IconButton
                     aria-label="github"
@@ -105,7 +97,6 @@ export default function ContactFormWithSocialButtons() {
                     isRound
                   />
                 </Link>
-
                 <Link
                   href="https://www.linkedin.com/in/appoline-cogan-91b777236/"
                   target="_blank"
@@ -164,10 +155,10 @@ export default function ContactFormWithSocialButtons() {
                       rows={6}
                       focusBorderColor="#FF5677"
                     />
-
                     <Input
                       my={2}
                       type={"submit"}
+                      value={button}
                       bg="#FF5677"
                       color="white"
                       _hover={{

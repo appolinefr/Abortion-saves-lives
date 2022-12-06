@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 
 import AbortionIsHealthcare from "../../../images/abortionIsHealthcare.jpg";
+
 export default function AboutSite() {
   return (
     <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 12 }} pt={12}>

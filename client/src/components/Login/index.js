@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
+
 import { LOGIN_USER } from "../../utils/mutations";
 import Auth from "../../utils/auth";
 
@@ -78,10 +79,10 @@ export default function LoginModal(props) {
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader my={4}>Log into your account</ModalHeader>
+        <ModalContent bg={styles.color}>
+          <ModalHeader my={4} color={"white"}>Log into your account</ModalHeader>
           <ModalCloseButton />
-          <ModalBody pb={6}>
+          <ModalBody bg={"white"} pb={6}>
             <FormControl mt={4}>
               <FormLabel>Email</FormLabel>
               <InputGroup mt={4}>
@@ -98,7 +99,7 @@ export default function LoginModal(props) {
               </InputGroup>
               <FormLabel mt={4}>Password</FormLabel>
               <Input
-                mt={4}
+                mt={2}
                 name="password"
                 type="password"
                 placeholder="Password"
@@ -110,8 +111,7 @@ export default function LoginModal(props) {
               <Button
                 type={"submit"}
                 onClick={handleFormSubmit}
-                mb={4}
-                mt={4}
+                my={4}
                 fontSize={"md"}
                 fontWeight={600}
                 color={"white"}

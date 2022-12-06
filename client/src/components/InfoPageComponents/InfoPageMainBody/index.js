@@ -86,10 +86,10 @@ const surgicalFeatures = [
 
 export default function infoPageBody() {
   return (
-    <Box p={4} mt={{ base: 6, sm: 6, md: 8, lg: 10 }}>
+    <Box p={4} mt={{ base: 6, sm: 6, md: 8, lg: 8 }}>
       <Stack
         Stack
-        spacing={4}
+        spacing={6}
         as={Container}
         maxW={"3xl"}
         textAlign={"center"}

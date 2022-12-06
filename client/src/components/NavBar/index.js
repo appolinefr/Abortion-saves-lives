@@ -31,8 +31,6 @@ export default function NavBar() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("white", "gray.800")}
-        color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 4 }}
         px={{ base: 6 }}
@@ -60,7 +58,7 @@ export default function NavBar() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
+            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={300}
             mr={1}
           >
@@ -70,7 +68,7 @@ export default function NavBar() {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={styles.color}
-            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
+            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={500}
             mr={1}
           >
@@ -79,8 +77,7 @@ export default function NavBar() {
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={useColorModeValue("gray.800", "white")}
-            fontSize={{ base: "lg", sm: "xl", md: "xl", lg: "2xl" }}
+            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
             fontWeight={300}
           >
             Lives
@@ -103,7 +100,7 @@ export default function NavBar() {
               <Button
                 onClick={logout}
                 as={"a"}
-                fontSize={{base: "sm", sm: "sm" ,md: "lg", lg: "lg"}}
+                fontSize={{ base: "sm", sm: "sm", md: "lg", lg: "lg" }}
                 fontWeight={600}
                 color={"white"}
                 bg={"#187498"}
@@ -121,7 +118,6 @@ export default function NavBar() {
           )}
         </Stack>
       </Flex>
-
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
@@ -157,7 +153,6 @@ const NAV_ITEMS = [
 ];
 
 const DesktopNav = () => {
-  const linkHoverColor = useColorModeValue("gray.600", "white");
 
   return (
     <Stack direction={"row"} spacing={2}>
@@ -168,12 +163,12 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"md"}
+                fontSize={"lg"}
                 fontWeight={500}
                 color={styles.color}
                 _hover={{
                   textDecoration: "none",
-                  color: linkHoverColor,
+                  color:"gray.600",
                 }}
               >
                 {navItem.label}
@@ -189,7 +184,6 @@ const DesktopNav = () => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={useColorModeValue("white", "gray.800")}
       p={4}
       display={{ md: "none" }}
     >
