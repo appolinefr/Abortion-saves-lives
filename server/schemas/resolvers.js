@@ -65,8 +65,17 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+    removeReview: async (parent, { facilityId, reviewId }) => {
+      // if (context.user.email === "appolinecogan@gmail.com") {
+        return Facility.findOneAndUpdate(
+          { _id: facilityId },
+          { $pull: { reviews: { _id: reviewId } } },
+          { new: true }
+        );
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
-
 
 module.exports = resolvers;

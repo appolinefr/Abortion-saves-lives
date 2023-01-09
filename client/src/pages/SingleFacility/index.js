@@ -30,7 +30,7 @@ import myBody from "../../images/myBody.jpg";
 import { QUERY_SINGLE_FACILITY } from "../../utils/queries";
 
 const SingleFacility = () => {
-  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true });
+  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: false });
   const { facilityId } = useParams();
 
   const { loading, data } = useQuery(QUERY_SINGLE_FACILITY, {

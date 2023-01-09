@@ -48,7 +48,7 @@ export default function AboutSite() {
             width={607}
             aspect-ratio={607 / 404}
             height={404}
-            borderRadius={"md"}
+
           />
         </Flex>
       </SimpleGrid>

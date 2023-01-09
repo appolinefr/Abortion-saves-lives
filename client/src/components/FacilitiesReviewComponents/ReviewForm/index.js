@@ -30,11 +30,8 @@ const ReviewForm = ({ facilityId }) => {
           reviewAuthor: Auth.getProfile().data.username,
         },
       });
-      console.log(data);
       setReviewText("");
-    } catch (err) {
-      console.error(err);
-    }
+    } catch (err) {}
   };
 
   const handleChange = (event) => {

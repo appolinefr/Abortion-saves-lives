@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Flex,
@@ -5,17 +6,22 @@ import {
   IconButton,
   Button,
   Stack,
-  Collapse,
   Link,
-  Popover,
-  PopoverTrigger,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
+  Drawer,
+  DrawerOverlay,
+  DrawerBody,
+  DrawerContent,
+  DrawerCloseButton,
+  Heading,
+  useColorMode,
 } from "@chakra-ui/react";
-import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import LoginModal from "../Login";
 
+import { BsSun, BsMoon } from "react-icons/bs";
+import { HamburgerIcon } from "@chakra-ui/icons";
+
+import LoginModal from "../Login";
 import Auth from "../../utils/auth";
 
 const styles = {
@@ -23,78 +29,67 @@ const styles = {
 };
 
 export default function NavBar() {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = React.useRef();
+  const { colorMode, toggleColorMode } = useColorMode();
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
   };
+
   return (
     <Box>
       <Flex
-        minH={"60px"}
+        minH={"80px"}
         py={{ base: 4 }}
-        px={{ base: 6 }}
+        px={{ base: 4 }}
         borderBottom={1}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
-        <Flex
-          flex={{ base: 1, md: "auto" }}
-          ml={{ base: -2 }}
-          display={{ base: "flex", md: "none" }}
-        >
-          <IconButton
-            onClick={onToggle}
-            icon={
-              isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-            }
-            variant={"ghost"}
-            color={styles.color}
-            aria-label={"Toggle Navigation"}
-          />
-        </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
-            fontWeight={300}
-            mr={1}
+        <Flex flex={{ base: 1 }} justify={{ base: "start" }}>
+          <Heading
+            as={Link}
+            href={"/"}
+            _hover={{ cursor: "pointer", textDecoration: "none" }}
           >
-            Abortion
-          </Text>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            color={styles.color}
-            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
-            fontWeight={500}
-            mr={1}
-          >
-            Saves
-          </Text>
-          <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
-            fontFamily={"heading"}
-            fontSize={{ sm: "xl", md: "xl", lg: "2xl" }}
-            fontWeight={300}
-          >
-            Lives
-          </Text>
+            <Text as={"span"} fontSize={"2xl"} fontWeight={300} mr={1}>
+              Abortion
+            </Text>
+            <Text
+              as={"span"}
+              color={styles.color}
+              fontSize={"2xl"}
+              fontWeight={500}
+              mr={1}
+            >
+              Saves
+            </Text>
+            <Text as={"span"} fontSize={"2xl"} fontWeight={300}>
+              Lives
+            </Text>
+          </Heading>
         </Flex>
         <Flex>
-          <Flex display={{ base: "none", md: "flex" }} mr={6}>
+          <Flex display={{ base: "none", md: "flex" }} align={"center"} mr={4}>
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        >
+        <Flex display={{ base: "flex", md: "none" }}>
+          <IconButton
+            onClick={onOpen}
+            ref={btnRef}
+            icon={<HamburgerIcon w={6} h={6} />}
+            variant={"ghost"}
+            aria-label={"Toggle Navigation"}
+            _hover={{
+              textDecoration: "none",
+            }}
+          />
+        </Flex>
+        <Flex display={{ base: "none", md: "flex" }}>
           {Auth.loggedIn() ? (
             <>
               <Button
@@ -116,20 +111,41 @@ export default function NavBar() {
               <LoginModal />
             </>
           )}
-        </Stack>
+        </Flex>
+        <Flex display={{ base: "flex", md: "flex" }}>
+          <IconButton
+            ml={{ base: 0, md: 2 }}
+            onClick={toggleColorMode}
+            icon={colorMode === "light" ? <BsMoon /> : <BsSun w={6} h={6} />}
+            // color={dark}
+            variant={"ghost"}
+            _hover={{
+              textDecoration: "none",
+              // color: pink,
+            }}
+            // _active={{ color: pink }}
+          />
+        </Flex>
       </Flex>
-      <Collapse in={isOpen} animateOpacity>
-        <MobileNav />
-      </Collapse>
+      <Drawer
+        isOpen={isOpen}
+        placement="right"
+        onClose={onClose}
+        finalFocusRef={btnRef}
+      >
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton onClick={onClose} />
+          <DrawerBody>
+            <MobileNav />
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   );
 }
 
 const NAV_ITEMS = [
-  {
-    label: "Home",
-    href: "/",
-  },
   {
     label: "About",
     href: "/about",
@@ -153,28 +169,23 @@ const NAV_ITEMS = [
 ];
 
 const DesktopNav = () => {
-
   return (
-    <Stack direction={"row"} spacing={2}>
+    <Stack direction={"row"} spacing={1}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={"hover"} placement={"bottom-start"}>
-            <PopoverTrigger>
-              <Link
-                p={2}
-                href={navItem.href ?? "#"}
-                fontSize={"lg"}
-                fontWeight={500}
-                color={styles.color}
-                _hover={{
-                  textDecoration: "none",
-                  color:"gray.600",
-                }}
-              >
-                {navItem.label}
-              </Link>
-            </PopoverTrigger>
-          </Popover>
+          <Link
+            p={2}
+            href={navItem.href ?? "#"}
+            fontSize={"lg"}
+            fontWeight={500}
+            color={styles.color}
+            _hover={{
+              textDecoration: "none",
+              color: "gray.600",
+            }}
+          >
+            {navItem.label}
+          </Link>
         </Box>
       ))}
     </Stack>
@@ -182,26 +193,49 @@ const DesktopNav = () => {
 };
 
 const MobileNav = () => {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   return (
-    <Stack
-      p={4}
-      display={{ md: "none" }}
-    >
+    <Stack p={4} display={{ md: "none" }}>
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <Flex direction={"column"} align={"center"} py={4}>
+        {Auth.loggedIn() ? (
+          <>
+            <Button
+              onClick={logout}
+              as={"a"}
+              fontSize={{ base: "sm", sm: "sm", md: "lg", lg: "lg" }}
+              fontWeight={600}
+              color={"white"}
+              bg={"#187498"}
+              _hover={{
+                bg: "#A7D2CB",
+              }}
+            >
+              Log out
+            </Button>
+          </>
+        ) : (
+          <>
+            <LoginModal />
+          </>
+        )}
+      </Flex>
     </Stack>
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
-  const { isOpen, onToggle } = useDisclosure();
-
+const MobileNavItem = ({ label, href }) => {
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4}>
       <Flex
         py={2}
         as={Link}
+        direction={"column"}
         href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
@@ -213,24 +247,6 @@ const MobileNavItem = ({ label, children, href }) => {
           {label}
         </Text>
       </Flex>
-
-      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
-        <Stack
-          mt={2}
-          pl={4}
-          borderLeft={1}
-          borderStyle={"solid"}
-          borderColor={useColorModeValue("gray.200", "gray.700")}
-          align={"start"}
-        >
-          {children &&
-            children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
-                {child.label}
-              </Link>
-            ))}
-        </Stack>
-      </Collapse>
     </Stack>
   );
 };
