@@ -19,6 +19,7 @@ import {
   Text,
   Input,
   InputGroup,
+  Link,
   InputLeftElement,
 } from "@chakra-ui/react";
 
@@ -33,7 +34,6 @@ export default function LoginModal(props) {
 
   const [formState, setFormState] = useState({ email: "", password: "" });
   const [login, { error, data }] = useMutation(LOGIN_USER);
-
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -66,13 +66,16 @@ export default function LoginModal(props) {
     <>
       <Button
         onClick={onOpen}
-        as={"a"}
+        as={Link}
         fontSize={"md"}
         fontWeight={600}
         color={"white"}
         bg={"#187498"}
         _hover={{
-          bg: "#A7D2CB",
+          textDecoration: "none",
+          color: "gray.800",
+          bg: "gray.300",
+          cursor: "pointer",
         }}
       >
         Login
@@ -80,18 +83,22 @@ export default function LoginModal(props) {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent bg={styles.color}>
-          <ModalHeader my={4} color={"white"}>Log into your account</ModalHeader>
+          <ModalHeader my={4} color={"white"}>
+            Log into your account
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody bg={"white"} pb={6}>
-            <FormControl mt={4}>
+            <FormControl mt={4} color={"gray.800"}>
               <FormLabel>Email</FormLabel>
-              <InputGroup mt={4}>
+              <InputGroup mt={4} color={"gray.800"}>
                 <InputLeftElement children={<MdOutlineEmail />} />
                 <Input
                   type="email"
                   name="email"
                   placeholder="Email"
                   size="md"
+                  // color={"gray.800"}
+                  // borderColor={"gray.800"}
                   focusBorderColor="#FF5677"
                   value={formState.email}
                   onChange={handleChange}

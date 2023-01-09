@@ -24,10 +24,6 @@ import { HamburgerIcon } from "@chakra-ui/icons";
 import LoginModal from "../Login";
 import Auth from "../../utils/auth";
 
-const styles = {
-  color: "#FF5677",
-};
-
 export default function NavBar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = React.useRef();
@@ -45,12 +41,14 @@ export default function NavBar() {
         py={{ base: 4 }}
         px={{ base: 4 }}
         borderBottom={1}
+        backgroundColor={useColorModeValue("white", "gray.900")}
         borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
+        borderColor={useColorModeValue("gray.200", "gray.700")}
         align={"center"}
       >
         <Flex flex={{ base: 1 }} justify={{ base: "start" }}>
           <Heading
+            color={useColorModeValue("gray.800", "gray.200")}
             as={Link}
             href={"/"}
             _hover={{ cursor: "pointer", textDecoration: "none" }}
@@ -60,7 +58,7 @@ export default function NavBar() {
             </Text>
             <Text
               as={"span"}
-              color={styles.color}
+              color={"#FF5677"}
               fontSize={"2xl"}
               fontWeight={500}
               mr={1}
@@ -133,8 +131,10 @@ export default function NavBar() {
         onClose={onClose}
         finalFocusRef={btnRef}
       >
-        <DrawerOverlay />
-        <DrawerContent>
+        <DrawerOverlay filter={"blur 5px"} />
+        <DrawerContent
+          backgroundColor={useColorModeValue("gray.50", "gray.700")}
+        >
           <DrawerCloseButton onClick={onClose} />
           <DrawerBody>
             <MobileNav />
@@ -169,6 +169,9 @@ const NAV_ITEMS = [
 ];
 
 const DesktopNav = () => {
+  const styles = useColorModeValue("#FF5677", "gray.200");
+  const hover = useColorModeValue("gray.800", "#FF5677");
+
   return (
     <Stack direction={"row"} spacing={1}>
       {NAV_ITEMS.map((navItem) => (
@@ -178,10 +181,10 @@ const DesktopNav = () => {
             href={navItem.href ?? "#"}
             fontSize={"lg"}
             fontWeight={500}
-            color={styles.color}
+            color={styles}
             _hover={{
               textDecoration: "none",
-              color: "gray.600",
+              color: hover,
             }}
           >
             {navItem.label}
@@ -230,6 +233,8 @@ const MobileNav = () => {
 };
 
 const MobileNavItem = ({ label, href }) => {
+  const styles = useColorModeValue("#FF5677", "gray.200");
+  const hover = useColorModeValue("gray.800", "#FF5677");
   return (
     <Stack spacing={4}>
       <Flex
@@ -239,11 +244,13 @@ const MobileNavItem = ({ label, href }) => {
         href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
+        color={styles}
         _hover={{
           textDecoration: "none",
+          color: hover,
         }}
       >
-        <Text fontWeight={500} color={styles.color}>
+        <Text fontWeight={500} color={""}>
           {label}
         </Text>
       </Flex>
