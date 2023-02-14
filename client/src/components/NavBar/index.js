@@ -41,7 +41,7 @@ export default function NavBar() {
         py={{ base: 4 }}
         px={{ base: 4 }}
         borderBottom={1}
-        backgroundColor={useColorModeValue("white", "gray.900")}
+        backgroundColor={useColorModeValue("white", "#1A202C")}
         borderStyle={"solid"}
         borderColor={useColorModeValue("gray.200", "gray.700")}
         align={"center"}

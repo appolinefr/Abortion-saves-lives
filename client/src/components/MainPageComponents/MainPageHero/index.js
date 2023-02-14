@@ -6,6 +6,7 @@ import {
   Stack,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import SignupModal from "../../Signup";
 
 const styles = {
@@ -19,7 +20,7 @@ export default function MainPageHero() {
     <>
       <Container
         maxW={"10xl"}
-        bg={useColorModeValue("gray.50", "gray.700")}
+        bg={useColorModeValue("gray.50", "gray.900")}
         color={useColorModeValue("gray.800", "gray.200")}
       >
         <Stack

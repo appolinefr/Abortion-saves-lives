@@ -13,6 +13,7 @@ import {
   TabList,
   Icon,
   TabPanels,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { MdOutlineQuestionAnswer } from "react-icons/md";
@@ -84,7 +85,8 @@ const surgicalFeatures = [
   },
 ];
 
-export default function infoPageBody() {
+export default function InfoPageBody() {
+  const text = useColorModeValue("gray.600", "gray.400");
   return (
     <Box p={4} mt={{ base: 6, sm: 6, md: 8, lg: 8 }}>
       <Stack
@@ -101,22 +103,18 @@ export default function infoPageBody() {
           color={"white"}
           fontWeight={600}
           bg={"#187498"}
-          p={2}
+          p={3}
           rounded={"md"}
           alignSelf={"center"}
         >
           Abortion key information
         </Heading>
-        <Text color={"gray.600"} fontSize={"xl"}>
+        <Text color={text} fontSize={"xl"}>
           In South Australia there are two methods available, medication
           abortion and surgical abortion. Both methods are safe and effective.
         </Text>
       </Stack>
-      <Tabs
-        isFitted
-        variant="soft-rounded"
-        colorScheme="gray"
-      >
+      <Tabs isFitted variant="soft-rounded" colorScheme="gray">
         <TabList mb="1em">
           <Tab fontSize={"xl"} color={"#FF5677"}>
             Medical Abortion
@@ -136,7 +134,7 @@ export default function infoPageBody() {
                     </Box>
                     <VStack align={"start"}>
                       <Text fontWeight={600}>{medicalFeature.title}</Text>
-                      <Text color={"gray.600"}>{medicalFeature.text}</Text>
+                      <Text color={text}>{medicalFeature.text}</Text>
                     </VStack>
                   </HStack>
                 ))}
@@ -153,7 +151,7 @@ export default function infoPageBody() {
                     </Box>
                     <VStack align={"start"}>
                       <Text fontWeight={600}>{surgicalFeature.title}</Text>
-                      <Text color={"gray.600"}>{surgicalFeature.text}</Text>
+                      <Text color={text}>{surgicalFeature.text}</Text>
                     </VStack>
                   </HStack>
                 ))}
@@ -165,3 +163,4 @@ export default function infoPageBody() {
     </Box>
   );
 }
+

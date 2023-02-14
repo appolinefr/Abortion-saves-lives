@@ -6,11 +6,13 @@ import {
   Heading,
   Text,
   Stack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import AbortionIsHealthcare from "../../../images/abortionIsHealthcare.jpg";
 
 export default function AboutSite() {
+  const text = useColorModeValue("gray.600", "gray.400");
   return (
     <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 12 }} pt={12}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -30,7 +32,7 @@ export default function AboutSite() {
           <Heading size={"lg"}>
             Abortions are legal and safe in Australia
           </Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
+          <Text color={text} fontSize={"lg"}>
             We are living in a country where reproductive rights are not in
             immediate danger. Nevertheless, there are large inequalities when it
             comes to accessing abortion and some people have to travel far, wait
@@ -48,7 +50,6 @@ export default function AboutSite() {
             width={607}
             aspect-ratio={607 / 404}
             height={404}
-
           />
         </Flex>
       </SimpleGrid>

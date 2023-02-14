@@ -7,10 +7,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const styles = {
-  color: "#FF5677",
-};
-
 export default function AboutHero() {
   return (
     <Container
@@ -29,15 +25,15 @@ export default function AboutHero() {
           fontSize={{ base: "2xl", sm: "2xl", md: "4xl" }}
           lineHeight={"130%"}
         >
-          <Text as={"span"} color={styles.color}>
+          <Text as={"span"} color={"#FF5677"}>
             Abortion&nbsp;
           </Text>
           is healthcare.&nbsp;
-          <Text as={"span"} color={styles.color}>
+          <Text as={"span"} color={"#FF5677"}>
             Abortion&nbsp;
           </Text>
           is freedom.&nbsp;
-          <Text as={"span"} color={styles.color}>
+          <Text as={"span"} color={"#FF5677"}>
             Abortion&nbsp;
           </Text>
           is bodily autonomy.

@@ -6,6 +6,7 @@ import {
   SimpleGrid,
   Flex,
   Image,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import AbortionMarch from "../../../images/abortionIsLegal.jpg";
@@ -14,6 +15,7 @@ import Donate from "../../../images/donate.jpg";
 import DonateModal from "../SupportModal";
 
 export default function SupportMainBody() {
+  const text = useColorModeValue("gray.600", "gray.400");
   return (
     <>
       <Container maxW={"5xl"} pb={{ base: 6, md: 8, lg: 8 }} pt={12}>
@@ -32,7 +34,7 @@ export default function SupportMainBody() {
               Protect human rights
             </Text>
             <Heading size={"lg"}>Help us keep abortion safe</Heading>
-            <Text color={"gray.500"} fontSize={"lg"}>
+            <Text color={text} fontSize={"lg"}>
               Find out where your lawmakers stand on abortion rights. Do you
               know where your local, state, and federal legislators stand on
               abortion rights? Call or email them to find out—and urge them to
@@ -81,13 +83,13 @@ export default function SupportMainBody() {
             <Heading size={"lg"}>
               Your time and donation are important to us
             </Heading>
-            <Text color={"gray.500"} fontSize={"lg"}>
+            <Text color={text} fontSize={"lg"}>
               Abortion is mostly free in South Australia but accessing abortion
               is still a postcode lottery for women across regional areas. We
               need your donations to support them with costs to cover travel,
               accommodation and time off work.
             </Text>
-            <DonateModal/>
+            <DonateModal />
           </Stack>
         </SimpleGrid>
       </Container>

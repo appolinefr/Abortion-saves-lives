@@ -3,12 +3,11 @@ import { useRef, useState } from "react";
 import {
   Box,
   Flex,
+  chakra,
   FormLabel,
-  IconButton,
   Input,
   InputGroup,
   InputLeftElement,
-  Link,
   Stack,
   Textarea,
   Tooltip,
@@ -19,8 +18,37 @@ import {
 
 import emailjs from "@emailjs/browser";
 
-import { BsGithub, BsLinkedin, BsPerson } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
 import { MdEmail, MdOutlineEmail } from "react-icons/md";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+
+const SocialButton = ({ children, href }) => {
+  return (
+    <chakra.button
+      bg={useColorModeValue("blackAlpha.100", "whiteAlpha.100")}
+      color={"white"}
+      rounded={"full"}
+      w={14}
+      h={14}
+      variant="ghost"
+      cursor={"pointer"}
+      as={"a"}
+      href={href}
+      isExternal
+      target="_blank"
+      display={"inline-flex"}
+      alignItems={"center"}
+      justifyContent={"center"}
+      transition={"background 0.3s ease"}
+      _hover={{
+        bg: "#FF5677",
+        color: "white",
+      }}
+    >
+      {children}
+    </chakra.button>
+  );
+};
 
 export default function ContactFormWithSocialButtons() {
   const { hasCopied, onCopy } = useClipboard("appolinecogan@gmail.com");
@@ -67,53 +95,20 @@ export default function ContactFormWithSocialButtons() {
                   closeOnClick={false}
                   hasArrow
                 >
-                  <IconButton
-                    aria-label="email"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    color={"white"}
-                    icon={<MdEmail />}
-                    _hover={{
-                      bg: "#FF5677",
-                      color: useColorModeValue("white", "gray.700"),
-                    }}
-                    onClick={onCopy}
-                    isRound
-                  />
+                  <span onClick={onCopy}>
+                    <SocialButton>
+                      <MdEmail size={"30px"} />
+                    </SocialButton>
+                  </span>
                 </Tooltip>
-                <Link href="https://github.com/appolinefr" target="_blank">
-                  <IconButton
-                    aria-label="github"
-                    variant="ghost"
-                    size="lg"
-                    fontSize="3xl"
-                    color={"white"}
-                    icon={<BsGithub />}
-                    _hover={{
-                      bg: "#FF5677",
-                      color: useColorModeValue("white", "gray.700"),
-                    }}
-                    isRound
-                  />
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/appoline-cogan-91b777236/"
-                  target="_blank"
+                <SocialButton href={"https://github.com/appolinefr"}>
+                  <FaGithub size={"30px"} />
+                </SocialButton>
+                <SocialButton
+                  href={"https://www.linkedin.com/in/appoline-cogan-91b777236/"}
                 >
-                  <IconButton
-                    aria-label="linkedin"
-                    variant="ghost"
-                    size="lg"
-                    color={"white"}
-                    icon={<BsLinkedin size="28px" />}
-                    _hover={{
-                      bg: "#FF5677",
-                      color: useColorModeValue("white", "gray.700"),
-                    }}
-                    isRound
-                  />
-                </Link>
+                  <FaLinkedin size={"30px"} />
+                </SocialButton>
               </Stack>
               <Box
                 bg={useColorModeValue("white", "gray.700")}
@@ -134,6 +129,7 @@ export default function ContactFormWithSocialButtons() {
                         size="md"
                         type="name"
                         focusBorderColor="#FF5677"
+                        _placeholder={{ opacity: 1, color: "gray.400" }}
                       />
                     </InputGroup>
                     <FormLabel>Email</FormLabel>
@@ -142,6 +138,7 @@ export default function ContactFormWithSocialButtons() {
                       <Input
                         type="email"
                         placeholder="Your Email"
+                        _placeholder={{ opacity: 1, color: "gray.400" }}
                         name="user_email"
                         size="md"
                         focusBorderColor="#FF5677"
@@ -151,6 +148,7 @@ export default function ContactFormWithSocialButtons() {
                     <Textarea
                       type="email"
                       placeholder="Your Message"
+                      _placeholder={{ opacity: 1, color: "gray.400" }}
                       name="user_message"
                       rows={6}
                       focusBorderColor="#FF5677"
@@ -162,7 +160,8 @@ export default function ContactFormWithSocialButtons() {
                       bg="#FF5677"
                       color="white"
                       _hover={{
-                        bg: "#A7D2CB",
+                        bg: "gray.300",
+                        color: "gray.800",
                       }}
                     />
                   </form>

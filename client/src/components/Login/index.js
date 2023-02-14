@@ -1,11 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 
-import { LOGIN_USER } from "../../utils/mutations";
-import Auth from "../../utils/auth";
-
-import { useDisclosure } from "@chakra-ui/react";
 import {
   Modal,
   ModalOverlay,
@@ -21,15 +16,16 @@ import {
   InputGroup,
   Link,
   InputLeftElement,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
-
 import { MdOutlineEmail } from "react-icons/md";
 
-const styles = {
-  color: "#FF5677",
-};
+import { LOGIN_USER } from "../../utils/mutations";
+import Auth from "../../utils/auth";
 
 export default function LoginModal(props) {
+  const text = useColorModeValue("#FF5677", "#1A202C");
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -82,7 +78,7 @@ export default function LoginModal(props) {
       </Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent bg={styles.color}>
+        <ModalContent bg={text}>
           <ModalHeader my={4} color={"white"}>
             Log into your account
           </ModalHeader>
@@ -97,8 +93,9 @@ export default function LoginModal(props) {
                   name="email"
                   placeholder="Email"
                   size="md"
-                  // color={"gray.800"}
-                  // borderColor={"gray.800"}
+                  color={"gray.800"}
+                  borderColor={"gray.400"}
+                  _placeholder={{ opacity: 1, color: "gray.500" }}
                   focusBorderColor="#FF5677"
                   value={formState.email}
                   onChange={handleChange}
@@ -111,6 +108,8 @@ export default function LoginModal(props) {
                 type="password"
                 placeholder="Password"
                 size="md"
+                borderColor={"gray.400"}
+                _placeholder={{ opacity: 1, color: "gray.500" }}
                 focusBorderColor="#FF5677"
                 value={formState.password}
                 onChange={handleChange}
@@ -122,9 +121,9 @@ export default function LoginModal(props) {
                 fontSize={"md"}
                 fontWeight={600}
                 color={"white"}
-                bg={styles.color}
+                bg={"#FF5677"}
                 _hover={{
-                  bg: "#A7D2CB",
+                  bg: "#187498",
                 }}
               >
                 Login

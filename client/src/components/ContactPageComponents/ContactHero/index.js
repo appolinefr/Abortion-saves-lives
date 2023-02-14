@@ -7,10 +7,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const styles = {
-  color: "#FF5677",
-};
-
 export default function ContactHero() {
   return (
     <>
@@ -31,7 +27,7 @@ export default function ContactHero() {
             lineHeight={"130%"}
           >
             Get in&nbsp;
-            <Text as={"span"} color={styles.color}>
+            <Text as={"span"} color={"#FF5677"}>
               touch
             </Text>
           </Heading>

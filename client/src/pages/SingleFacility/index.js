@@ -17,6 +17,7 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  useColorModeValue,
   Image,
 } from "@chakra-ui/react";
 
@@ -30,6 +31,9 @@ import myBody from "../../images/myBody.jpg";
 import { QUERY_SINGLE_FACILITY } from "../../utils/queries";
 
 const SingleFacility = () => {
+  const bg = useColorModeValue("gray.50", "gray.900");
+  const color = useColorModeValue("gray.700", "gray.200");
+
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: false });
   const { facilityId } = useParams();
 
@@ -57,7 +61,7 @@ const SingleFacility = () => {
   if (!Auth.loggedIn()) {
     return (
       <>
-        <Container maxW={"full"} bg={"gray.50"} color={"gray.700"}>
+        <Container maxW={"full"} bg={bg} color={color}>
           <Stack as={Box} textAlign={"center"} py={{ base: 14, md: 20 }}>
             <Heading
               fontWeight={300}

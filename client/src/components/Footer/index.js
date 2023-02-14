@@ -7,7 +7,7 @@ import {
   useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
-import { FaLinkedin, FaGithub, FaInstagram } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const SocialButton = ({ children, label, href }) => {
   return (
@@ -27,7 +27,7 @@ const SocialButton = ({ children, label, href }) => {
       transition={"background 0.3s ease"}
       _hover={{
         bg: "#FF5677",
-        color: useColorModeValue("white", "gray.700"),
+        color: "white"
       }}
     >
       <VisuallyHidden>{label}</VisuallyHidden>
@@ -55,8 +55,6 @@ export default function Footer() {
         <Text>© 2022 Abortion Saves Lives. All rights reserved</Text>
         <Stack direction={"row"} spacing={6}>
           <SocialButton
-            as="Link"
-            isExternal
             label={"Linkedin"}
             href={"https://www.linkedin.com/in/appoline-cogan-91b777236/"}
           >
@@ -65,12 +63,8 @@ export default function Footer() {
           <SocialButton
             label={"GitHub"}
             href={"https://github.com/appolinefr"}
-            target="_blank"
           >
             <FaGithub />
-          </SocialButton>
-          <SocialButton label={"Instagram"} href={"#"}>
-            <FaInstagram />
           </SocialButton>
         </Stack>
       </Container>

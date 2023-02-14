@@ -9,16 +9,15 @@ import {
   Grid,
   GridItem,
   Container,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { FiInfo, FiMap, FiShare2 } from "react-icons/fi";
 
 const styles = {
   mainColor: "#FF5677",
-  secGreenColor: "#A7D2CB",
   grey: "gray.100",
 };
-
 
 const Feature = ({ heading, text, icon, button }) => {
   return (
@@ -35,7 +34,7 @@ const Feature = ({ heading, text, icon, button }) => {
 
 export default function MainPageBody() {
   return (
-    <Box as={Container} maxW="7xl" mt={{sm: 8, md: 10, lg:14}} p={4}>
+    <Box as={Container} maxW="7xl" mt={{ sm: 8, md: 10, lg: 14 }} p={4}>
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -56,7 +55,11 @@ export default function MainPageBody() {
           </VStack>
         </GridItem>
       </Grid>
-      <Divider mt={10} mb={10} />
+      <Divider
+        mt={10}
+        mb={16}
+        borderColor={useColorModeValue("gray.300", "gray.200")}
+      />
       <Grid
         templateColumns={{
           base: "repeat(1, 1fr)",
@@ -83,7 +86,7 @@ export default function MainPageBody() {
               color={"white"}
               bg={"#187498"}
               _hover={{
-                bg: styles.secGreenColor,
+                bg: styles.mainColor,
               }}
             >
               Learn more
@@ -108,7 +111,7 @@ export default function MainPageBody() {
               bg={"#187498"}
               href={`/facilities`}
               _hover={{
-                bg: styles.secGreenColor,
+                bg: styles.mainColor,
               }}
             >
               Learn more
@@ -120,7 +123,9 @@ export default function MainPageBody() {
             <Icon as={FiShare2} w={10} h={10} color={styles.mainColor} mb={4} />
           }
           heading={"I want to share my experience"}
-          text={"If you have had an abortion in SA, you can share your experience and write a testimonial to help other people decide where would be the best facility for them."}
+          text={
+            "If you have had an abortion in SA, you can share your experience and write a testimonial to help other people decide where would be the best facility for them."
+          }
           button={
             <Button
               my={6}
@@ -131,7 +136,7 @@ export default function MainPageBody() {
               bg={"#187498"}
               href={"/facilities"}
               _hover={{
-                bg: styles.secGreenColor,
+                bg: styles.mainColor,
               }}
             >
               Learn more

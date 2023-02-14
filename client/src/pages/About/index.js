@@ -1,4 +1,3 @@
-import React from "react";
 
 import AboutAuthor from "../../components/AboutPageComponents/AboutAuthor";
 import AboutSite from "../../components/AboutPageComponents/AboutSite";

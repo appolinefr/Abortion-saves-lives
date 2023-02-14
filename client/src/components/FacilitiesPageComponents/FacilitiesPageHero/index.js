@@ -7,10 +7,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const styles = {
-  color: "#FF5677",
-};
-
 export default function FacilitiesPageHero() {
   return (
     <>
@@ -32,7 +28,7 @@ export default function FacilitiesPageHero() {
             lineHeight={"130%"}
           >
             Where to get an&nbsp;
-            <Text as={"span"} color={styles.color}>
+            <Text as={"span"} color={"#FF5677"}>
               abortion&nbsp;
             </Text>
             in SA

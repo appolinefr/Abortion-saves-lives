@@ -6,11 +6,13 @@ import {
   Heading,
   Text,
   Stack,
+  useColorModeValue
 } from "@chakra-ui/react";
 
 import Appoline from "../../../images/aboutPic.jpeg";
 
 export default function AboutAuthor() {
+    const text = useColorModeValue("gray.600", "gray.400");
   return (
     <Container maxW={"5xl"} pb={12} pt={{ base: 6, md: 8, lg: 12 }}>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
@@ -39,7 +41,7 @@ export default function AboutAuthor() {
             My story
           </Text>
           <Heading size={"lg"}>Abortion saved my life</Heading>
-          <Text color={"gray.500"} fontSize={"lg"}>
+          <Text color={text} fontSize={"lg"}>
             I had an abortion in 2017. As a white, privileged and cis women
             living in a country where abortions are safe, legal and almost free,
             I was very lucky. Not all woman are. There is still a lot of stigma
